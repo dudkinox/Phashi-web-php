@@ -74,7 +74,7 @@
         <label for="inputPassword" class="col-md-1 col-form-label">ในแบบ</label>
         <div class="col-md-2">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
             <label class="form-check-label" for="flexCheckChecked">
               (1) ภ.ง.ด.1ก
             </label>
@@ -82,15 +82,15 @@
         </div>
         <div class="col-md-2">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
             <label class="form-check-label" for="flexCheckChecked">
-              (2) ภ.ง.ด.1ก พเศษ
+              (2) ภ.ง.ด.1ก พิเศษ
             </label>
           </div>
         </div>
         <div class="col-md-2">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
             <label class="form-check-label" for="flexCheckChecked">
               (3) ภ.ง.ด.2
             </label>
@@ -98,7 +98,7 @@
         </div>
         <div class="col-md-2">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
             <label class="form-check-label" for="flexCheckChecked">
               (4) ภ.ง.ด.3
             </label>
@@ -108,7 +108,7 @@
         </div>
         <div class="col-md-2">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
             <label class="form-check-label" for="flexCheckChecked">
               (5) ภ.ง.ด.2ก
             </label>
@@ -117,7 +117,7 @@
 
         <div class="col-md-2">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
             <label class="form-check-label" for="flexCheckChecked">
               (6) ภ.ง.ด.3ก
             </label>
@@ -125,7 +125,7 @@
         </div>
         <div class="col-md-2">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
             <label class="form-check-label" for="flexCheckChecked">
               (7) ภ.ง.ด.53
             </label>
@@ -155,7 +155,114 @@
       </tr>
     </thead>
     <?php include 'views/Formtable.php'; ?>
-
   </table>
 
+  <div class="container justify-content-between border border-dark rounded-3 py-3">
+    <form>
+      <div class="row ">
+        <div class="col-md-4 ">
+          <label class="form-label">เงินที่จ่ายเข้า กบข./กสข./กองทุนสงเคราะห์ครูโรงเรียนเอกชน</label>
+          <input class="form-control" placeholder="........................บาท">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">กองทุนประกันสังคม</label>
+          <input class="form-control" placeholder="........................บาท">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">กองทุนสำรองเลี้ยงชีพ</label>
+          <input class="form-control" placeholder="........................บาท">
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="container border border-dark rounded-3 py-3">
+    <form>
+      <div class="row ">
+        <label class="col-md-1 pt-2">ผู้จ่ายเงิน</label>
+        <div class="col-md-2 pt-2">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
+              (1) หักหน้าที่จ่าย
+            </label>
+          </div>
+        </div>
+        <div class="col-md-2 pt-2">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
+              (2) ออกให้ตลอดไป
+            </label>
+          </div>
+        </div>
+        <div class="col-md-2 pt-2">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
+              (3) ออกให้ครั้งเดี่ยว
+            </label>
+          </div>
+        </div>
+        <label class="col-md-1 col-form-label">(4) อื่นๆ</label>
+        <div class="col-md-4">
+          <input class="form-control  " placeholder="(ระบุ)">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="container ">
+    <div class="row">
+      <div class="col-md-5 border border-dark rounded-3 py-3 ">
+        <div class="row">
+          <h5 class="col-md-3 pt-3 ">คำเตือน</h5>
+          <p class="col-md-9">ผู้มีหน้าที่ออกหนังสือรับรองการหักภาษี ณ ที่จ่าย
+            <br>ฝ่าฝืนไม่ปัฎิบัติตามมาตรา 50 ทวิ แห่งประมวล
+            <br>รัษฎากร ต้องรับโทษทางอาญาตามมาตรา 35
+            <br>แห่งประมวลรัษฎากร
+          </p>
+        </div>
+      </div>
+      <div class="col-md-7 border border-dark rounded-3">
+        <div class="row">
+          <p class="col-12 text-center">ขอรับนองว่าข้อความและตัวเลขดังกล่วงข้างต้นถูกต้องตรงกับความจริงทุกประการ</p>
+          <label class="col-md-3 col-form-label text-end">ลงชื่อ</label>
+          <div class="col-md-7  ">
+            <input class="form-control" placeholder="ผู้จ่ายเงิน....">
+          </div>
+        </div>
+        <div class="row pt-3 container justify-content-center">
+          <div class="col-md-3">
+            <select class="form-select form-select-md " aria-label=".form-select-lg example">
+              <option selected>วัน</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <select class="form-select form-select-md " aria-label=".form-select-lg example">
+              <option selected>เดือน</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <select class="form-select form-select-md " aria-label=".form-select-lg example">
+              <option selected>ปี</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+
+          <!-- <label class="col-md-3 col-form-label text-end">ลงชื่อ</label>
+          <div class="col-md-7  ">
+            <input class="form-control" placeholder="ผู้จ่ายเงิน....">
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
