@@ -56,7 +56,7 @@
     <tr>
         <th scope="row">
             <div class="row ">
-                <label class="col-md-5 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (1.4 อัตราอื่นๆ </label>
+                <label class="col-md-4 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1.4) อัตราอื่นๆ </label>
                 <div class="col-md-3 specify ">
                     <input class="form-control" placeholder="(ระบุ)...........">
                 </div>
@@ -153,7 +153,7 @@
     <tr>
         <th scope="row" colspan="4">
             <div class=" row ">
-                <label for="inputPassword" class="col-md-2 col-form-label text-end">รวมเงินภาษีที่หักส่ง</label>
+                <label class="col-md-2 col-form-label text-end">รวมเงินภาษีที่หักส่ง</label>
                 <div class="col-md-10">
                     <input class="form-control" placeholder="(ตัวอักษร)">
                 </div>
