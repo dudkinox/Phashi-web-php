@@ -32,7 +32,7 @@
       <div class="mb-3 row pt-3">
         <label for="inputPassword" class="col-md-1 col-form-label">ที่อยู่</label>
         <div class="col-md-11">
-          <input class="form-control" placeholder="(ให้ระบุชื่ออาคาร/หมู่บ้าน ห้องเลขที่ชั้นที่ เลขที่ ตรอก/ซอย หมู่ที่ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด)">
+          <input class="form-control" placeholder="(ให้ระบุชื่ออาคาร/หมู่บ้าน ห้องเลขที่ ชั้นที่ เลขที่ ตรอก/ซอย หมู่ที่ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด)">
         </div>
       </div>
     </form>
@@ -63,7 +63,7 @@
       <div class="row pt-3">
         <label for="inputPassword" class="col-md-1 col-form-label">ที่อยู่</label>
         <div class="col-md-11">
-          <input class="form-control" placeholder="(ให้ระบุชื่ออาคาร/หมู่บ้าน ห้องเลขที่ชั้นที่ เลขที่ ตรอก/ซอย หมู่ที่ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด)">
+          <input class="form-control" placeholder="(ให้ระบุชื่ออาคาร/หมู่บ้าน ห้องเลขที่ ชั้นที่ เลขที่ ตรอก/ซอย หมู่ที่ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด)">
         </div>
       </div>
       <div class="row pt-3">
@@ -184,7 +184,7 @@
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
             <label class="form-check-label" for="flexCheckChecked">
-              (1) หักหน้าที่จ่าย
+              (1) หัก ณ ที่จ่าย
             </label>
           </div>
         </div>
@@ -200,7 +200,7 @@
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
             <label class="form-check-label" for="flexCheckChecked">
-              (3) ออกให้ครั้งเดี่ยว
+              (3) ออกให้ครั้งเดียว
             </label>
           </div>
         </div>
@@ -217,7 +217,7 @@
         <div class="row">
           <h5 class="col-md-3 pt-3 ">คำเตือน</h5>
           <p class="col-md-9">ผู้มีหน้าที่ออกหนังสือรับรองการหักภาษี ณ ที่จ่าย
-            <br>ฝ่าฝืนไม่ปัฎิบัติตามมาตรา 50 ทวิ แห่งประมวล
+            <br>ฝ่าฝืนไม่ปฏิบัติตามมาตรา 50 ทวิ แห่งประมวล
             <br>รัษฎากร ต้องรับโทษทางอาญาตามมาตรา 35
             <br>แห่งประมวลรัษฎากร
           </p>
@@ -225,7 +225,7 @@
       </div>
       <div class="col-md-7 border border-dark rounded-3">
         <div class="row">
-          <p class="col-12 text-center">ขอรับนองว่าข้อความและตัวเลขดังกล่วงข้างต้นถูกต้องตรงกับความจริงทุกประการ</p>
+          <p class="col-12 text-center">ขอรับรองว่าข้อความและตัวเลขดังกล่าวข้างต้นถูกต้องตรงกับความจริงทุกประการ</p>
           <label class="col-md-3 col-form-label text-end">ลงชื่อ</label>
           <div class="col-md-7  ">
             <input class="form-control" placeholder="ผู้จ่ายเงิน....">

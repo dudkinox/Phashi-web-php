@@ -28,6 +28,6 @@
             <?php include "views/Form.php"; ?>
 
         </div>
-    </section>
+    </section>      
 
 </main>
