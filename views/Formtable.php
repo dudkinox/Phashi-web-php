@@ -96,7 +96,7 @@
     </tr>
 
     <tr>
-        <th scope="row"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2.4) กำไรที่รับรู้ทางบัญชีโดยวิธีส่วนได้เสีย (equity methon)
+        <th scope="row"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2.4) กำไรที่รับรู้ทางบัญชีโดยวิธีส่วนได้เสีย (equity method)
         </th>
         <td><input class="form-control"></td>
         <td><input class="form-control"></td>
