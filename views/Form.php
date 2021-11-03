@@ -1,24 +1,24 @@
 <div class="container border border-dark rounded-3 py-3">
   <form>
     <div class=" row py-3 justify-content-between">
-      <div class="col-md-4 ">
+      <div class="col-md-2">
         <label class=""></label>
       </div>
-      <div class="col-md-4">
-        <label class="h5 font-weight-bold">หนังสือรองรับการหักภาษี ณ ที่จ่าย</label>
+      <div class="col-md-8 text-center">
+        <label class="h5 ">หนังสือรองรับการหักภาษี ณ ที่จ่าย</label>
       </div>
       <div class="col-md-2">
         <input class="form-control" placeholder="เล่มที่" required>
       </div>
     </div>
     <div class=" row py-3 justify-content-between">
-      <div class="col-md-4 ">
+      <div class="col-md-2 ">
         <label class=""></label>
       </div>
-      <div class="col-md-4">
-        <label class="h5">มาตรา 50 ทวิ แห่งประมวลรัษฎากร</label>
+      <div class="col-md-8 text-center">
+        <label class="h6">มาตรา 50 ทวิ แห่งประมวลรัษฎากร</label>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2 col-sx-2">
         <input class="form-control" placeholder="เลขที่" required>
       </div>
     </div>
@@ -128,7 +128,7 @@
           <label for="inputPassword" class="col-md-12 col-form-label text-center">(ให้สามารถอ้างอิงหรือสอบยันกันได้ระหว่างลำดับที่ตาม หนังสือรับรองฯ กับแบบยื่นรายการภาษีหักที่จ่าย)</label>
         </div>
         <div class="col-md-2">
-          <div class="form-check">
+          <div class="form-check ">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
             <label class="form-check-label" for="flexCheckChecked">
               (5) ภ.ง.ด.2ก
@@ -144,7 +144,7 @@
             </label>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 ">
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
             <label class="form-check-label" for="flexCheckChecked">
