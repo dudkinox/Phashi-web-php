@@ -1,3 +1,24 @@
+<script>
+  function autoTab(obj) {
+    var pattern = new String("_-____-_____-_-__"); // กำหนดรูปแบบในนี้
+    var pattern_ex = new String("-"); // กำหนดสัญลักษณ์หรือเครื่องหมายที่ใช้แบ่งในนี้
+    var returnText = new String("");
+    var obj_l = obj.value.length;
+    var obj_l2 = obj_l - 1;
+    for (i = 0; i < pattern.length; i++) {
+      if (obj_l2 == i && pattern.charAt(i + 1) == pattern_ex) {
+        returnText += obj.value + pattern_ex;
+        obj.value = returnText;
+      }
+    }
+    if (obj_l >= pattern.length) {
+      obj.value = obj.value.substr(0, pattern.length);
+    }
+  }
+</script>
+
+
+
 <div class="container border border-dark rounded-3 py-3">
   <form>
     <div class=" row py-3 justify-content-between">
@@ -24,8 +45,6 @@
     </div>
   </form>
 
-
-
   <div class="container justify-content-between border border-dark rounded-3 py-3">
     <form>
       <div class=" row">
@@ -36,7 +55,7 @@
           <label class="col-form-label">เลขประจำตัวผู้เสียภาษีอากร (13 หลัก)*</label>
         </div>
         <div class="col-md-4">
-          <input class="form-control">
+          <input type="text" tabindex="1" placeholder="x-xxxxx-xxxxx-xx-x" name="reg_id_card" id="username" size="25" value="" class="inputbox autowidth" onkeyup="autoTab(this)" minlength="13" maxlength="20" />
         </div>
       </div>
       <div class="row pt-3">
@@ -64,10 +83,10 @@
           <label class="">ผู้ถูกหักภาษี ณ ที่จ่าย : -</label>
         </div>
         <div class="col-md-3">
-          <label class="col-form-label">เลขประจำตัวผู้เสียภาษีอากร (13 หลัก)*</label>
+          <label class="col-form-label " value="">เลขประจำตัวผู้เสียภาษีอากร (13 หลัก)*</label>
         </div>
         <div class="col-md-4">
-          <input class="form-control">
+          <input type="text" tabindex="1" placeholder="x-xxxxx-xxxxx-xx-x" name="reg_id_card" id="username" size="25" value="" class="inputbox autowidth" onkeyup="autoTab(this)" minlength="13" maxlength="20" />
         </div>
       </div>
       <div class="row pt-3">
@@ -234,7 +253,7 @@
   </div>
   <div class="container ">
     <div class="row">
-      <div class="col-md-5 border border-dark rounded-3 py-3 ">
+      <div class="col-md-5 border border-dark rounded-3 py-5 ps-4">
         <div class="row">
           <h5 class="col-md-3 pt-3 ">คำเตือน</h5>
           <p class="col-md-9">ผู้มีหน้าที่ออกหนังสือรับรองการหักภาษี ณ ที่จ่าย
@@ -246,7 +265,7 @@
       </div>
       <div class="col-md-7 border border-dark rounded-3">
         <div class="row">
-          <p class="col-12 text-center">ขอรับรองว่าข้อความและตัวเลขดังกล่าวข้างต้นถูกต้องตรงกับความจริงทุกประการ</p>
+          <p class="h5 col-12 text-center">ขอรับรองว่าข้อความและตัวเลขดังกล่าวข้างต้นถูกต้องตรงกับความจริงทุกประการ</p>
           <label class="col-md-3 col-form-label text-end">ลงชื่อ</label>
           <div class="col-md-7  ">
             <input class="form-control" placeholder="ผู้จ่ายเงิน...." required>
@@ -277,8 +296,18 @@
               <option value="3">Three</option>
             </select>
           </div>
-
-
+        </div>
+        <div class="row">
+          <p class=" col-12 text-center">(วัน/เดือน/ปี ที่ออกหนังสือรับรองฯ)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container ">
+    <div class="row">
+      <div class="col-md-12 border border-dark rounded-5 py-3  ">
+        <div class=" d-grid gap-2   d-md-flex justify-content-md-end">
+          <button class="btn btn-primary" type="button">ยืนยัน</button>
         </div>
       </div>
     </div>
