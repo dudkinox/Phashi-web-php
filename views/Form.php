@@ -5,7 +5,7 @@
         <label class=""></label>
       </div>
       <div class="col-md-8 text-center">
-        <label class="h5 ">หนังสือรองรับการหักภาษี ณ ที่จ่าย</label>
+        <label class="h5 ">หนังสือรับรองการหักภาษี ณ ที่จ่าย</label>
       </div>
       <div class="col-md-2">
         <input class="form-control" placeholder="เล่มที่" required>
@@ -52,7 +52,7 @@
       <div class="mb-3 row pt-3">
         <label for="inputPassword" class="col-md-1 col-form-label">ที่อยู่</label>
         <div class="col-md-11">
-          <input class="form-control" placeholder="(ให้ระบุชื่ออาคาร/หมู่บ้าน ห้องเลขที่ชั้นที่ เลขที่ ตรอก/ซอย หมู่ที่ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด)" required>
+          <input class="form-control" placeholder="(ให้ระบุชื่ออาคาร/หมู่บ้าน ห้องเลขที่ชั้นที่ เลขที่ ตรอก/ซอย หมู่ที่ ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด)" required>
         </div>
       </div>
     </form>
@@ -83,7 +83,7 @@
       <div class="row pt-3">
         <label for="inputPassword" class="col-md-1 col-form-label">ที่อยู่</label>
         <div class="col-md-11">
-          <input class="form-control" placeholder="(ให้ระบุชื่ออาคาร/หมู่บ้าน ห้องเลขที่ชั้นที่ เลขที่ ตรอก/ซอย หมู่ที่ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด)" required>
+          <input class="form-control" placeholder="(ให้ระบุชื่ออาคาร/หมู่บ้าน ห้องเลขที่ชั้นที่ เลขที่ ตรอก/ซอย หมู่ที่ ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด)" required>
         </div>
       </div>
       <div class="row pt-3">
