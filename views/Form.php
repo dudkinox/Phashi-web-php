@@ -26,7 +26,7 @@
         <label class=""></label>
       </div>
       <div class="col-md-8 text-center">
-        <label class="h5 ">หนังสือรับรองการหักภาษี ณ ที่จ่าย</label>
+        <label class="h5 ">หนังสือรองรับการหักภาษี ณ ที่จ่าย</label>
       </div>
       <div class="col-md-2">
         <input class="form-control" placeholder="เล่มที่" required>
@@ -55,7 +55,7 @@
           <label class="col-form-label">เลขประจำตัวผู้เสียภาษีอากร (13 หลัก)*</label>
         </div>
         <div class="col-md-4">
-          <input type="text" tabindex="1" placeholder="x-xxxxx-xxxxx-xx-x" name="reg_id_card" id="username" size="25" value="" class="inputbox autowidth" onkeyup="autoTab(this)" minlength="13" maxlength="20" />
+          <input class="form-control" type="text" tabindex="1" placeholder="x-xxxxx-xxxxx-xx-x" name="reg_id_card" id="username" value="" class="inputbox autowidth" onkeyup="autoTab(this)" minlength="13" maxlength="20" />
         </div>
       </div>
       <div class="row pt-3">
@@ -71,7 +71,7 @@
       <div class="mb-3 row pt-3">
         <label for="inputPassword" class="col-md-1 col-form-label">ที่อยู่</label>
         <div class="col-md-11">
-          <input class="form-control" placeholder="(ให้ระบุชื่ออาคาร/หมู่บ้าน ห้องเลขที่ชั้นที่ เลขที่ ตรอก/ซอย หมู่ที่ ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด)" required>
+          <input class="form-control" placeholder="(ให้ระบุชื่ออาคาร/หมู่บ้าน ห้องเลขที่ชั้นที่ เลขที่ ตรอก/ซอย หมู่ที่ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด)" required>
         </div>
       </div>
     </form>
@@ -80,13 +80,13 @@
     <form>
       <div class=" row">
         <div class="col-md-5">
-          <label class="">ผู้ถูกหักภาษี ณ ที่จ่าย : -</label>
+          <label class="">ผู้มีหน้าที่หักภาษี ณ ที่จ่าย : -</label>
         </div>
         <div class="col-md-3">
           <label class="col-form-label " value="">เลขประจำตัวผู้เสียภาษีอากร (13 หลัก)*</label>
         </div>
         <div class="col-md-4">
-          <input type="text" tabindex="1" placeholder="x-xxxxx-xxxxx-xx-x" name="reg_id_card" id="username" size="25" value="" class="inputbox autowidth" onkeyup="autoTab(this)" minlength="13" maxlength="20" />
+          <input class="form-control" type="text" tabindex="1" placeholder="x-xxxxx-xxxxx-xx-x" name="reg_id_card" id="username" value="" onkeyup="autoTab(this)" minlength="13" maxlength="20" />
         </div>
       </div>
       <div class="row pt-3">
@@ -102,7 +102,7 @@
       <div class="row pt-3">
         <label for="inputPassword" class="col-md-1 col-form-label">ที่อยู่</label>
         <div class="col-md-11">
-          <input class="form-control" placeholder="(ให้ระบุชื่ออาคาร/หมู่บ้าน ห้องเลขที่ชั้นที่ เลขที่ ตรอก/ซอย หมู่ที่ ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด)" required>
+          <input class="form-control" placeholder="(ให้ระบุชื่ออาคาร/หมู่บ้าน ห้องเลขที่ชั้นที่ เลขที่ ตรอก/ซอย หมู่ที่ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด)" required>
         </div>
       </div>
       <div class="row pt-3">
