@@ -164,7 +164,7 @@
             ประเภทเงินได้พึงประเมินที่จ่าย
           </th>
           <th class="text-center col-md-2">
-            วัน/เดือน/ปี (ภาษีที่จ่าย)
+            วัน/เดือน หรือปีภาษี ที่จ่าย
           </th>
           <th class="text-center col-md-2">
             จำนวนเงินที่จ่าย
@@ -205,7 +205,7 @@
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
             <label class="form-check-label" for="flexCheckChecked">
-              (1) หักหน้าที่จ่าย
+              (1) หัก ณ ที่จ่าย
             </label>
           </div>
         </div>
@@ -221,7 +221,7 @@
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
             <label class="form-check-label" for="flexCheckChecked">
-              (3) ออกให้ครั้งเดี่ยว
+              (3) ออกให้ครั้งเดียว
             </label>
           </div>
         </div>
@@ -238,7 +238,7 @@
         <div class="row">
           <h5 class="col-md-3 pt-3 ">คำเตือน</h5>
           <p class="col-md-9">ผู้มีหน้าที่ออกหนังสือรับรองการหักภาษี ณ ที่จ่าย
-            <br>ฝ่าฝืนไม่ปัฎิบัติตามมาตรา 50 ทวิ แห่งประมวล
+            <br>ฝ่าฝืนไม่ปฏิบัติตามมาตรา 50 ทวิ แห่งประมวล
             <br>รัษฎากร ต้องรับโทษทางอาญาตามมาตรา 35
             <br>แห่งประมวลรัษฎากร
           </p>
@@ -246,7 +246,7 @@
       </div>
       <div class="col-md-7 border border-dark rounded-3">
         <div class="row">
-          <p class="col-12 text-center">ขอรับนองว่าข้อความและตัวเลขดังกล่วงข้างต้นถูกต้องตรงกับความจริงทุกประการ</p>
+          <p class="col-12 text-center">ขอรับรองว่าข้อความและตัวเลขดังกล่าวข้างต้นถูกต้องตรงกับความจริงทุกประการ</p>
           <label class="col-md-3 col-form-label text-end">ลงชื่อ</label>
           <div class="col-md-7  ">
             <input class="form-control" placeholder="ผู้จ่ายเงิน...." required>
