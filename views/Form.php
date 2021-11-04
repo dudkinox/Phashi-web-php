@@ -61,7 +61,7 @@
     <form>
       <div class=" row">
         <div class="col-md-5">
-          <label class="">ผู้มีหน้าที่หักภาษี ณ ที่จ่าย : -</label>
+          <label class="">ผู้ถูกหักภาษี ณ ที่จ่าย : -</label>
         </div>
         <div class="col-md-3">
           <label class="col-form-label">เลขประจำตัวผู้เสียภาษีอากร (13 หลัก)*</label>
