@@ -1,8 +1,8 @@
 <?php 
-        //input 
-    $PERSIONALID = $_POST["ID_T"];
+    //input 
+    $PERSIONALID = $_POST["ID_T"]; 
 
-    // cal
+    //cal 
     
     //base 
 ?>

@@ -53,7 +53,7 @@
           <label class="col-form-label">เลขประจำตัวผู้เสียภาษีอากร (13 หลัก)*</label>
         </div>
         <div class="col-md-4">
-          <input name="ID_T" class="form-control" type="text" tabindex="1" placeholder="x-xxxxx-xxxxx-xx-x" name="reg_id_card" id="username" value="" class="inputbox autowidth" onkeyup="autoTab(this)" minlength="13" maxlength="20" />
+          <input name="ID_T" required class="form-control" type="text" tabindex="1" placeholder="x-xxxxx-xxxxx-xx-x" name="reg_id_card" id="username" value="" class="inputbox autowidth" onkeyup="autoTab(this)" minlength="13" maxlength="20" />
         </div>
       </div>
       <div class="row pt-3">
@@ -284,14 +284,14 @@
         </div>
       </div>
     </div>
-  </form>
-  <div class="container ">
-    <div class="row">
-      <div class="col-md-12 border border-dark rounded-5 py-3  ">
-        <div class=" d-grid gap-2   d-md-flex justify-content-md-end">
-          <button class="btn btn-primary" type="button">ยืนยัน</button>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 border border-dark rounded-5 py-3  ">
+          <div class=" d-grid gap-2   d-md-flex justify-content-md-end">
+            <button class="btn btn-primary" type="submit">ยืนยัน</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
 </div>

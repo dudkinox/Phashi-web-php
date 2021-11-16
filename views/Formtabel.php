@@ -146,8 +146,8 @@
         <th colspan="2">
             <label class="col-md-12 col-form-label text-end">รวมเงินที่จ่ายและภาษีที่หักนำส่ง</label>
         </th>
-        <td><input name="Sum_pay" class="form-control"></td>
-        <td><input name="Sum_sent" class="form-control"></td>
+        <td><input name="Sum_pay" required class="form-control"></td>
+        <td><input name="Sum_sent" required class="form-control"></td>
     </tr>
 
     <tr>
