@@ -13,8 +13,10 @@
                             กรอกฟอร์มหนังสือรับรองการหักภาษี ณ ที่จ่าย(50 ทวิ)
                         </p>
                         <div class="text-center text-lg-start">
-                            <span>ใส่รูป</span>
-                            <i class="bi bi-image-fill"></i>
+                            <button class = "btn btn-primary col-12">
+                                ใส่รูป 
+                                <i class="bi bi-image-fill"></i>
+                            </button>
                         </div>
                     </div>
                 </div>

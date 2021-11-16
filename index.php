@@ -19,6 +19,8 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!-- Script -->
   <?php include 'components/Script.php'; ?>
+  <!-- controller -->
+  <script src="controller/form.js"></script>
 </body>
 
 </html>
