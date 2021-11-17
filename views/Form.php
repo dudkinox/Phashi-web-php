@@ -29,7 +29,7 @@
         <label class="h5 ">หนังสือรองรับการหักภาษี ณ ที่จ่าย</label>
       </div>
       <div class="col-md-2">
-        <input name="ID" class="form-control" placeholder="เล่มที่" required>
+        <input name="ID" class="form-control" placeholder="เล่มที่">
       </div>
     </div>
     <div class=" row py-3 justify-content-between">
@@ -40,7 +40,7 @@
         <label class="h6">มาตรา 50 ทวิ แห่งประมวลรัษฎากร</label>
       </div>
       <div class="col-md-2 col-sx-2">
-        <input name="No" class="form-control" placeholder="เลขที่" required>
+        <input name="No" class="form-control" placeholder="เลขที่">
       </div>
     </div>
 
@@ -82,13 +82,13 @@
           <label class="col-form-label " value="">เลขประจำตัวผู้เสียภาษีอากร (13 หลัก)*</label>
         </div>
         <div class="col-md-4">
-          <input name="ID_G" class="form-control" type="text" tabindex="1" placeholder="x-xxxxx-xxxxx-xx-x" name="reg_id_card" id="username" value="" onkeyup="autoTab(this)" minlength="13" maxlength="20" />
+          <input name="ID_G" required class="form-control" type="text" tabindex="1" placeholder="x-xxxxx-xxxxx-xx-x" name="reg_id_card" id="username" value="" onkeyup="autoTab(this)" minlength="13" maxlength="20" />
         </div>
       </div>
       <div class="row pt-3">
         <div class="col-md-6 ">
           <label class="form-label">ชื่อ</label>
-          <input name="Name_G" class="form-control" placeholder="(ให้ระบุว่าเป็น บุคคล นิติบุคคล บริษัท สมาคม หรือคณะบุคคล)" required>
+          <input name="Name_G" required class="form-control" placeholder="(ให้ระบุว่าเป็น บุคคล นิติบุคคล บริษัท สมาคม หรือคณะบุคคล)" required>
         </div>
         <div class="col-md-6">
           <label class="form-label">เลขประจำตัวผู้เสียภาษีอากร</label>
@@ -98,7 +98,7 @@
       <div class="row pt-3">
         <label for="inputPassword" class="col-md-1 col-form-label">ที่อยู่</label>
         <div class="col-md-11">
-          <input name="Address_G" class="form-control" placeholder="(ให้ระบุชื่ออาคาร/หมู่บ้าน ห้องเลขที่ชั้นที่ เลขที่ ตรอก/ซอย หมู่ที่ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด)" required>
+          <input name="Address_G" required class="form-control" placeholder="(ให้ระบุชื่ออาคาร/หมู่บ้าน ห้องเลขที่ชั้นที่ เลขที่ ตรอก/ซอย หมู่ที่ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด)" required>
         </div>
       </div>
       <div class="row pt-3">
