@@ -196,15 +196,15 @@
       <div class="row ">
         <div class="col-md-4 ">
           <label class="form-label">เงินที่จ่ายเข้า กบข./กสข./กองทุนสงเคราะห์ครูโรงเรียนเอกชน</label>
-          <input name="School" class="form-control" placeholder="........................บาท" required>
+          <input name="School" class="form-control" placeholder="........................บาท">
         </div>
         <div class="col-md-4">
           <label class="form-label">กองทุนประกันสังคม</label>
-          <input name="Social" class="form-control" placeholder="........................บาท" required>
+          <input name="Social" class="form-control" placeholder="........................บาท">
         </div>
         <div class="col-md-4">
           <label class="form-label">กองทุนสำรองเลี้ยงชีพ</label>
-          <input name="Life" class="form-control" placeholder="........................บาท" required>
+          <input name="Life" class="form-control" placeholder="........................บาท">
         </div>
       </div>
     </div>
