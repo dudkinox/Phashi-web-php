@@ -7,6 +7,8 @@
 </head>
 
 <body>
+  <!-- modal -->
+  <?php include 'components/confirmModal.php'; ?>
   <!-- Header -->
   <?php include 'views/Header.php'; ?>
   <!-- Banner -->
