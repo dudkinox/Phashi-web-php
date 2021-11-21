@@ -91,4 +91,5 @@ function clearInput() {
   document.getElementById("Sum_pay").value = null;
   document.getElementById("Sum_sent").value = null;
   document.getElementById("Sum_vat").value = null;
+  window.location.href = "export/?id=";
 }
