@@ -18,7 +18,7 @@
 </script>
 
 <div class="container border border-dark rounded-3 py-3">
-  <form action="service/form50.php" method="POST">
+  <form action="service/form50.php" method="POST" enctype="multipart/form-data">
     <div class="row py-3 justify-content-between">
       <div class="col-md-2">
         <label class=""></label>
@@ -287,13 +287,22 @@
       <div class="row">
         <div class="col-md-12 border border-dark rounded-5 py-3  ">
           <div class=" d-grid gap-2   d-md-flex justify-content-md-end">
+            <button type="button" class="btn btn-primary" onclick="clears()">เคลียผลการคำนวณ</button>
             <button type="button" onclick="calculate()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              กรอกใบต่อไป
+              แสดงผล PDF
             </button>
-            <button class="btn btn-primary" type="submit">ยืนยัน</button>
+            <button class="btn btn-primary" onclick="calculate()" type="submit">ยืนยัน</button>
           </div>
         </div>
       </div>
     </div>
   </form>
 </div>
+
+<script>
+  function calculate() {
+    var Sum_sent = Number(document.getElementById("Sum_sent").value) + 0;
+    document.getElementById("calculate").innerHTML =
+      "ภาษีคืนฉันซิ " + Sum_sent.toLocaleString() + " บาท";
+  }
+</script>

@@ -15,21 +15,12 @@ function uploadImage() {
   document.getElementById("imgInp").click();
 }
 
-function calculate() {
-  var Sum_sent = Number(document.getElementById("Sum_sent").value) + 0;
-  document.getElementById("calculate").innerHTML =
-    "ภาษีคืนฉันซิ " + Sum_sent.toLocaleString() + " บาท";
-}
-
 function clearInput() {
   document.getElementById("ID").value = null;
   document.getElementById("No").value = null;
   document.getElementById("ID_T").value = null;
   document.getElementById("Name_T").value = null;
   document.getElementById("Address_T").value = null;
-  //   document.getElementById("ID_G").value = null;
-  //   document.getElementById("Name_G").value = null;
-  //   document.getElementById("Address_G").value = null;
   document.getElementById("No_G").value = null;
   document.getElementById("1").checked = false;
   document.getElementById("2").checked = false;

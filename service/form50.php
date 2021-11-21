@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("../http/db.php");
 //input 
 $ID = $_POST["ID"];
@@ -132,7 +133,9 @@ $querySent = "INSERT INTO sent
             VALUES ('" . $Income_S . "','" . $Fee_S . "','" . $Copy_S . "','" . $Interest_S . "','" . $Interest_S11 . "','" . $Interest_S12 . "','" . $Interest_S13 . "',
             '" . $Interest_S14 . "','" . $Interest_S21 . "','" . $Interest_S22 . "','" . $Interest_S23 . "','" . $Interest_S24 . "','" . $Interest_S25 . "','" . $Pay_S . "','" . $Other_S . "')";
 $queryOther = "INSERT INTO other
-            (Interest,
+            (
+            ID_FR,
+            Interest,
             Interest_other, 
             Other, 
             Sum_pay, 
@@ -145,8 +148,58 @@ $queryOther = "INSERT INTO other
             Pay_other, 
             Name, 
             Date) 
-            VALUES ('" . $Interest . "','" . $Interest_other . "','" . $Other . "','" . $Sum_pay . "','" . $Sum_sent . "','" . $Sum_vat . "','" . $School . "',
+            VALUES ('" . $ID_G . "', '" . $Interest . "','" . $Interest_other . "','" . $Other . "','" . $Sum_pay . "','" . $Sum_sent . "','" . $Sum_vat . "','" . $School . "',
             '" . $Social . "','" . $Life . "','" . $Pay . "','" . $Pay_other . "','" . $Name . "','" . $Date . "')";
+try {
+    $target_dir = "../uploads/";
+    $target_file = $target_dir . basename($_FILES["file"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+    $queryUpload = "";
+
+    $check = getimagesize($_FILES["file"]["tmp_name"]);
+    if ($check !== false) {
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+            $queryUpload = "INSERT INTO 
+                            image(image, No) 
+                            VALUES ('" . $target_file . "','" . $ID . "')";
+            if (
+                $conn->query($queryUpload) === TRUE
+            ) {
+                // 
+            } else {
+                echo "Error: " . $queryUpload . "<br>" . $conn->error;
+                exit;
+            }
+        }
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+} catch (Throwable $th) {
+    //throw $th;
+}
+
+$queryGetSum = "SELECT Sum_sent FROM other WHERE ID_FR = '" . $ID_G . "'";
+$resultGetSum = $conn->query($queryGetSum);
+$sum = 0;
+if ($resultGetSum->num_rows > 0) {
+    $rowGetSum = $resultGetSum->fetch_assoc();
+    $sum = number_format($Sum_sent) +  number_format($rowGetSum["Sum_sent"]);
+} else {
+    $sum = $Sum_sent;
+}
+
+$queryGetCal = "SELECT sum FROM cal WHERE ID_FR = '" . $ID_G . "'";
+$resultGetCal = $conn->query($queryGetCal);
+$queryCal = "";
+if ($resultGetCal->num_rows > 0) {
+    $queryCal = "UPDATE cal SET sum='" . $sum . "' WHERE ID_FR = '" . $ID_G . "'";
+} else {
+    $queryCal = "INSERT INTO cal(ID_FR, sum) VALUES ('" . $ID_G . "','" . $sum . "')";
+}
 
 if (
     $conn->query($queryHead) === TRUE &&
@@ -155,9 +208,12 @@ if (
     $conn->query($queryDate) === TRUE &&
     $conn->query($queryPay) === TRUE &&
     $conn->query($querySent) === TRUE &&
-    $conn->query($queryOther) === TRUE
+    $conn->query($queryOther) === TRUE &&
+    $conn->query($queryCal) === TRUE
 ) {
-    echo "New record created successfully";
+    $_SESSION["save"] = 1;
+    $_SESSION["idCard"] = $ID_G;
+    header("location: ../");
 } else {
     echo "Error: " . $queryHead . "<br>" . $conn->error;
     echo "Error: " . $queryTake . "<br>" . $conn->error;
@@ -166,4 +222,6 @@ if (
     echo "Error: " . $queryPay . "<br>" . $conn->error;
     echo "Error: " . $querySent . "<br>" . $conn->error;
     echo "Error: " . $queryOther . "<br>" . $conn->error;
+    echo "Error: " . $queryCal . "<br>" . $conn->error;
+    exit;
 }
