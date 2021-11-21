@@ -21,7 +21,6 @@
                     </div>
                 </div>
 
-
                 <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
                     <img id="defaultImage" src="https://tipsmake.com/data1/thumbs/how-to-extract-img-files-in-windows-10-thumb-bzxI4IDgg.jpg" class="img-fluid" alt="default image">
                     <img id="blah" src="#" class="img-fluid" alt="preview" style="display: none;" />

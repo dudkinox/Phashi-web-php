@@ -1,4 +1,5 @@
 <?php
+require("../http/db.php");
 //input 
 $ID = $_POST["ID"];
 $No = $_POST["No"];
@@ -60,6 +61,7 @@ $Other_P = $_POST["Other_P"];
 $Other_S = $_POST["Other_S"];
 $Sum_pay = $_POST["Sum_pay"];
 $Sum_sent = $_POST["Sum_sent"];
+$Sum_vat = $_POST["Sum_vat"];
 $School = $_POST["School"];
 $Social = $_POST["Social"];
 $Life = $_POST["Life"];
@@ -67,7 +69,101 @@ $Pay = $_POST["Pay"];
 $Pay = $_POST["Pay"];
 $Pay_other = $_POST["Pay_other"];
 $Name = $_POST["Name"];
-$Date = $_POST["Date"]; 
-//cal 
+$Date = $_POST["Date"];
 
-//base 
+$queryHead = "INSERT INTO head(ID, No) 
+            VALUES ('" . $ID . "','" . $No . "')";
+$queryTake = "INSERT INTO take(ID_T, Name_T, Address_T) 
+            VALUES ('" . $ID_T . "','" . $Name_T . "','" . $Address_T . "')";
+$queryGive = "INSERT INTO give(ID_G, Name_G, Address_G, No_G, type_G) 
+            VALUES ('" . $ID_G . "','" . $Name_G . "','" . $Address_G . "','" . $No_G . "','" . $type_G . "')";
+$queryDate = "INSERT INTO date
+            (Income_D, 
+            Fee_D, 
+            Copy_D, 
+            Interest_D, 
+            Interest_D11, 
+            Interest_D12, 
+            Interest_D13, 
+            Interest_D14, 
+            Interest_D21, 
+            Interest_D22, 
+            Interest_D23, 
+            Interest_D24, 
+            Interest_D25, 
+            Pay_D, 
+            Other_D) 
+            VALUES ('" . $Income_D . "','" . $Fee_D . "','" . $Copy_D . "','" . $Interest_D . "','" . $Interest_D11 . "','" . $Interest_D12 . "','" . $Interest_D13 . "',
+            '" . $Interest_D14 . "','" . $Interest_D21 . "','" . $Interest_D22 . "','" . $Interest_D23 . "','" . $Interest_D24 . "','" . $Interest_D25 . "','" . $Pay_D . "','" . $Other_D . "')";
+$queryPay = "INSERT INTO pay
+            (Income_P, 
+            Fee_P, 
+            Copy_P, 
+            Interest_P, 
+            Interest_P11, 
+            Interest_P12, 
+            Interest_P13, 
+            Interest_P14, 
+            Interest_P21, 
+            Interest_P22, 
+            Interest_P23, 
+            Interest_P24, 
+            Interest_P25, 
+            Pay_P, 
+            Other_P) 
+            VALUES ('" . $Income_P . "','" . $Fee_P . "','" . $Copy_P . "','" . $Interest_P . "','" . $Interest_P11 . "','" . $Interest_P12 . "','" . $Interest_P13 . "',
+            '" . $Interest_P14 . "','" . $Interest_P21 . "','" . $Interest_P22 . "','" . $Interest_P23 . "','" . $Interest_P24 . "','" . $Interest_P25 . "','" . $Pay_P . "','" . $Other_P . "')";
+$querySent = "INSERT INTO sent
+            (Income_S, 
+            Fee_S, 
+            Copy_S, 
+            Interest_S, 
+            Interest_S11, 
+            Interest_S12, 
+            Interest_S13, 
+            Interest_S14, 
+            Interest_S21, 
+            Interest_S22, 
+            Interest_S23, 
+            Interest_S24, 
+            Interest_S25, 
+            Pay_S, 
+            Other_S) 
+            VALUES ('" . $Income_S . "','" . $Fee_S . "','" . $Copy_S . "','" . $Interest_S . "','" . $Interest_S11 . "','" . $Interest_S12 . "','" . $Interest_S13 . "',
+            '" . $Interest_S14 . "','" . $Interest_S21 . "','" . $Interest_S22 . "','" . $Interest_S23 . "','" . $Interest_S24 . "','" . $Interest_S25 . "','" . $Pay_S . "','" . $Other_S . "')";
+$queryOther = "INSERT INTO other
+            (Interest,
+            Interest_other, 
+            Other, 
+            Sum_pay, 
+            Sum_sent, 
+            Sum_vat, 
+            School, 
+            Social, 
+            Life, 
+            Pay, 
+            Pay_other, 
+            Name, 
+            Date) 
+            VALUES ('" . $Interest . "','" . $Interest_other . "','" . $Other . "','" . $Sum_pay . "','" . $Sum_sent . "','" . $Sum_vat . "','" . $School . "',
+            '" . $Social . "','" . $Life . "','" . $Pay . "','" . $Pay_other . "','" . $Name . "','" . $Date . "')";
+
+if (
+    $conn->query($queryHead) === TRUE &&
+    $conn->query($queryTake) === TRUE &&
+    $conn->query($queryGive) === TRUE &&
+    $conn->query($queryDate) === TRUE &&
+    $conn->query($queryPay) === TRUE &&
+    $conn->query($querySent) === TRUE &&
+    $conn->query($queryOther) === TRUE
+) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $queryHead . "<br>" . $conn->error;
+    echo "Error: " . $queryTake . "<br>" . $conn->error;
+    echo "Error: " . $queryGive . "<br>" . $conn->error;
+    echo "Error: " . $queryDate . "<br>" . $conn->error;
+    echo "Error: " . $queryPay . "<br>" . $conn->error;
+    echo "Error: " . $querySent . "<br>" . $conn->error;
+    echo "Error: " . $queryOther . "<br>" . $conn->error;
+}
