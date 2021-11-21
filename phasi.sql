@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2021 at 04:19 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Generation Time: Nov 21, 2021 at 06:15 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,17 @@ SET time_zone = "+00:00";
 --
 -- Database: `phasi`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cal`
+--
+
+CREATE TABLE `cal` (
+  `ID_FR` varchar(100) NOT NULL,
+  `sum` decimal(50,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -73,10 +84,22 @@ CREATE TABLE `head` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `image`
+--
+
+CREATE TABLE `image` (
+  `image` varchar(100) NOT NULL,
+  `No` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `other`
 --
 
 CREATE TABLE `other` (
+  `ID_FR` varchar(100) NOT NULL,
   `Interest` varchar(100) NOT NULL,
   `Interest_other` varchar(100) NOT NULL,
   `Other` varchar(100) NOT NULL,
@@ -157,40 +180,10 @@ CREATE TABLE `take` (
 --
 
 --
--- Indexes for table `date`
+-- Indexes for table `cal`
 --
-ALTER TABLE `date`
-  ADD PRIMARY KEY (`Income_D`);
-
---
--- Indexes for table `give`
---
-ALTER TABLE `give`
-  ADD PRIMARY KEY (`ID_G`);
-
---
--- Indexes for table `head`
---
-ALTER TABLE `head`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `pay`
---
-ALTER TABLE `pay`
-  ADD PRIMARY KEY (`Income_P`);
-
---
--- Indexes for table `sent`
---
-ALTER TABLE `sent`
-  ADD PRIMARY KEY (`Income_S`);
-
---
--- Indexes for table `take`
---
-ALTER TABLE `take`
-  ADD PRIMARY KEY (`ID_T`);
+ALTER TABLE `cal`
+  ADD PRIMARY KEY (`ID_FR`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
