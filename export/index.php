@@ -12,6 +12,10 @@ $style = '
 <style>
     .container{
         font-family: "Garuda";
+      
+        border:1px solid black;
+ 
+  padding: 10px;
     }
     .container .wrapper{
         font-size: 12pt;
@@ -20,12 +24,22 @@ $style = '
     h3{
     text-align: center;
     font-family: "Garuda";
+  
     }
     h4{
     font-family: "Garuda";
     }
     p{
     font-family: "Garuda";
+    font-size: 9pt;
+    } 
+    label{
+      font-family: "Garuda";
+      font-size: 9pt;
+      }
+    tr, td{
+      font-family: "Garuda";
+      font-size: 9pt;
     }
     /* วันที่ */
     .date{
@@ -55,17 +69,66 @@ $style = '
         color: #000;
     }
 
-    td{
-        text-align: center;
+  
+   
+    .box1{
+      border:1px solid black;
+      border-radius: 10px;
+      padding: 8px;
     }
+ 
+  
 </style>';
 $mpdf->WriteHTML($style);
 
 $text = '
 <div class = "container">
-    <div class="wrapper">
-        <p>ทดสอบ</p>
-    </div>
+  
+
+<h3>หนังสือรับรองหักภาษี ณ ที่จ่าย</h3>
+
+<div class="box1">
+<table >
+  <tr>
+    <td>ผู้มีหน้าที่หักภาษีณ ที่จ่าย : -</td>
+    <td>เลขประจำตัวผู้เสียภาษีอากร (13 หลัก)*</td>
+    <td>....................................................</td>
+  </tr>
+  <tr>
+    <td>ชื่อ.....................................................................................</td>
+    <td>Tobias</td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>14</td>
+    <td>10</td>
+  </tr>
+</table>
+</div>
+<div class="box1">
+<div class="row">
+
+  <div class="column">
+  <p>ผู้มีหน้าที่หักภาษีณ ที่จ่าย : เลขประจำตัวผู้เสียภาษีอากร (13 หลัก)* ........................................................</p>
+  </div>
+  <div class="column">
+  <p>เลขประจำตัวผู้เสียภาษีอากร (13 หลัก)*</p>
+  </div>
+  <div class="column">
+  <p>........................................................</p>
+  </div>
+
+  
+<div class="column">
+<p>ผู้มีหน้าที่หักภาษีณ ที่จ่าย : -</p>
+</div>
+
+</div>
+</div>
+
+  
+
+
 </div>
         ';
 $mpdf->WriteHTML($text);
