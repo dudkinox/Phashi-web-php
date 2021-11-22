@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('http/db.php');
+$IDCARD = isset($_SESSION["idCard"]) ? $_SESSION["idCard"] : '';
 ?>
 <!DOCTYPE html>
 <html lang="en">

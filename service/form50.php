@@ -72,8 +72,8 @@ $Pay_other = $_POST["Pay_other"];
 $Name = $_POST["Name"];
 $Date = $_POST["Date"];
 
-$queryHead = "INSERT INTO head(ID, No) 
-            VALUES ('" . $ID . "','" . $No . "')";
+$queryHead = "INSERT INTO head(ID_FR, ID, No) 
+            VALUES ('" . $ID_G . "', '" . $ID . "','" . $No . "')";
 $queryTake = "INSERT INTO take(ID_T, Name_T, Address_T) 
             VALUES ('" . $ID_T . "','" . $Name_T . "','" . $Address_T . "')";
 $queryGive = "INSERT INTO give(ID_G, Name_G, Address_G, No_G, type_G) 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2021 at 06:15 PM
+-- Generation Time: Nov 22, 2021 at 12:58 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -32,6 +32,13 @@ CREATE TABLE `cal` (
   `sum` decimal(50,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `cal`
+--
+
+INSERT INTO `cal` (`ID_FR`, `sum`) VALUES
+('1-1111-11111-1-11', '1000.00');
+
 -- --------------------------------------------------------
 
 --
@@ -56,6 +63,13 @@ CREATE TABLE `date` (
   `Other_D` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `date`
+--
+
+INSERT INTO `date` (`Income_D`, `Fee_D`, `Copy_D`, `Interest_D`, `Interest_D11`, `Interest_D12`, `Interest_D13`, `Interest_D14`, `Interest_D21`, `Interest_D22`, `Interest_D23`, `Interest_D24`, `Interest_D25`, `Pay_D`, `Other_D`) VALUES
+('วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย');
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +84,13 @@ CREATE TABLE `give` (
   `type_G` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `give`
+--
+
+INSERT INTO `give` (`ID_G`, `Name_G`, `Address_G`, `No_G`, `type_G`) VALUES
+('1-1111-11111-1-11', 'ชื่อ นามสกุล ที่จ่าย', '775/104', '1', 'ภ.ง.ด.1ก');
+
 -- --------------------------------------------------------
 
 --
@@ -77,9 +98,17 @@ CREATE TABLE `give` (
 --
 
 CREATE TABLE `head` (
+  `ID_FR` varchar(100) NOT NULL,
   `ID` varchar(100) NOT NULL,
   `No` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `head`
+--
+
+INSERT INTO `head` (`ID_FR`, `ID`, `No`) VALUES
+('1-1111-11111-1-11', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -115,6 +144,13 @@ CREATE TABLE `other` (
   `Date` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `other`
+--
+
+INSERT INTO `other` (`ID_FR`, `Interest`, `Interest_other`, `Other`, `Sum_pay`, `Sum_sent`, `Sum_vat`, `School`, `Social`, `Life`, `Pay`, `Pay_other`, `Name`, `Date`) VALUES
+('1-1111-11111-1-11', 'อัตราอื่นๆ', 'อื่นๆ', 'อื่นๆ', '100', '1000', 'รวมเงินภาษีที่หักส่ง', '12', '12', '12', 'อื่นๆ', 'อื่นๆ', 'ชื่อสกุลผู้จ่ายเงิน', '2021-11-22');
+
 -- --------------------------------------------------------
 
 --
@@ -138,6 +174,13 @@ CREATE TABLE `pay` (
   `Pay_P` varchar(100) NOT NULL,
   `Other_P` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pay`
+--
+
+INSERT INTO `pay` (`Income_P`, `Fee_P`, `Copy_P`, `Interest_P`, `Interest_P11`, `Interest_P12`, `Interest_P13`, `Interest_P14`, `Interest_P21`, `Interest_P22`, `Interest_P23`, `Interest_P24`, `Interest_P25`, `Pay_P`, `Other_P`) VALUES
+('จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย');
 
 -- --------------------------------------------------------
 
@@ -163,6 +206,13 @@ CREATE TABLE `sent` (
   `Other_S` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `sent`
+--
+
+INSERT INTO `sent` (`Income_S`, `Fee_S`, `Copy_S`, `Interest_S`, `Interest_S11`, `Interest_S12`, `Interest_S13`, `Interest_S14`, `Interest_S21`, `Interest_S22`, `Interest_S23`, `Interest_S24`, `Interest_S25`, `Pay_S`, `Other_S`) VALUES
+('ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้');
+
 -- --------------------------------------------------------
 
 --
@@ -174,6 +224,13 @@ CREATE TABLE `take` (
   `Name_T` varchar(100) NOT NULL,
   `Address_T` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `take`
+--
+
+INSERT INTO `take` (`ID_T`, `Name_T`, `Address_T`) VALUES
+('1-1111-11111-1-11', 'ชื่อ นามสกุล', '775/104');
 
 --
 -- Indexes for dumped tables
