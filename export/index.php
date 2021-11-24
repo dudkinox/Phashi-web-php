@@ -13,7 +13,6 @@ $style = '
     .container{
         font-family: "Garuda";
         border:1px solid black;
- 
     }
     .container .wrapper{
         font-size: 12pt;
@@ -120,11 +119,20 @@ $query = "SELECT * FROM head WHERE ID_FR = '" . $id . "'";
 $result = $conn->query($query);
 $row = $result->fetch_assoc();
 
-$text = '
-<label><span class="text-label">ฉบับที่ 1 (สำหรับผู้ถูกหักภาษี ณ ที่จ่าย ใช้แนบพร้อมกับแบบแสดงรายการภาษี)
-        <br>ฉบับที่ 2 (สำหรับผู้ถูกหักภาษี ณ ที่จ่าย เก็บไว้เป็นหลักฐาน)
-        </span></label>
+$queryImage = "SELECT * FROM image WHERE No = '" . $row["No"] . "'";
+$resultImage = $conn->query($queryImage);
+$rowImage = $resultImage->fetch_assoc();
 
+$image = '&emsp;&emsp;&emsp;&emsp;<img src="' . $rowImage["image"] . '" />';
+$mpdf->WriteHTML($image);
+$mpdf->AddPage();
+
+$text = '
+<label>
+  <span class="text-label">ฉบับที่ 1 (สำหรับผู้ถูกหักภาษี ณ ที่จ่าย ใช้แนบพร้อมกับแบบแสดงรายการภาษี)
+    <br>ฉบับที่ 2 (สำหรับผู้ถูกหักภาษี ณ ที่จ่าย เก็บไว้เป็นหลักฐาน)
+  </span>
+</label>
 
 <div class = "container">
 
@@ -379,7 +387,13 @@ $text2 = '
 
         </div>';
 
+$querySum = "SELECT * FROM cal WHERE ID_FR = '" . $id . "'";
+$resultSum = $conn->query($querySum);
+$rowSum = $resultSum->fetch_assoc();
+$text3 = "<h3>ผลรวมรวมเงินที่จ่ายและภาษีที่หักนำส่ง : " . number_format($rowSum["sum"]) . " บาท</h3>";
+
 $mpdf->WriteHTML($text);
 $mpdf->WriteHTML($text2);
+$mpdf->WriteHTML($text3);
 $mpdf->Output();
 $conn->close();
