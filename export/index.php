@@ -115,19 +115,51 @@ $style = '
 </style>';
 $mpdf->WriteHTML($style);
 
-$query = "SELECT * FROM head WHERE ID_FR = '" . $id . "'";
+$query = "SELECT B.Name_T, B.Address_T, A.image, A.ID, A.No, B.ID_T, 
+          C.Name_G, C.Address_G, C.No_G, C.type_G
+          FROM head AS A 
+          INNER JOIN take AS B 
+          ON A.ID_FR = B.ID_T
+          INNER JOIN give AS C
+          ON C.ID_G = '" . $id . "'
+          WHERE A.ID_FR = '" . $id . "'";
 $result = $conn->query($query);
-$row = $result->fetch_assoc();
 
-$queryImage = "SELECT * FROM image WHERE No = '" . $row["No"] . "'";
-$resultImage = $conn->query($queryImage);
-$rowImage = $resultImage->fetch_assoc();
+$text = "";
+$text2 = "";
 
-$image = '&emsp;&emsp;&emsp;&emsp;<img src="' . $rowImage["image"] . '" />';
-$mpdf->WriteHTML($image);
-$mpdf->AddPage();
+while ($row = $result->fetch_assoc()) {
 
-$text = '
+  $image = '&emsp;&emsp;&emsp;&emsp;<img src="' . $row["image"] . '" />';
+  $mpdf->WriteHTML($image);
+  $mpdf->AddPage();
+
+  $check = ["<input type='checkbox'>", "<input type='checkbox'>", "<input type='checkbox'>", "<input type='checkbox'>", "<input type='checkbox'>", "<input type='checkbox'>", "<input type='checkbox'>"];
+  switch ($row["type_G"]) {
+    case "ภ.ง.ด.1ก":
+      $check[0] = "<input type='checkbox' checked='checked'>";
+      break;
+    case "ภ.ง.ด.1ก พิเศษ":
+      $check[1] = "<input type='checkbox' checked='checked'>";
+      break;
+    case "ภ.ง.ด.2":
+      $check[2] = "<input type='checkbox' checked='checked'>";
+      break;
+    case "ภ.ง.ด.3":
+      $check[3] = "<input type='checkbox' checked='checked'>";
+      break;
+    case "ภ.ง.ด.2ก":
+      $check[4] = "<input type='checkbox' checked='checked'>";
+      break;
+    case "ภ.ง.ด.3ก":
+      $check[5] = "<input type='checkbox' checked='checked'>";
+      break;
+    case "ภ.ง.ด.53":
+      $check[6] = "<input type='checkbox' checked='checked'>";
+      break;
+  }
+
+  $text = '
 <label>
   <span class="text-label">ฉบับที่ 1 (สำหรับผู้ถูกหักภาษี ณ ที่จ่าย ใช้แนบพร้อมกับแบบแสดงรายการภาษี)
     <br>ฉบับที่ 2 (สำหรับผู้ถูกหักภาษี ณ ที่จ่าย เก็บไว้เป็นหลักฐาน)
@@ -142,36 +174,36 @@ $text = '
     <div class="box1">
     
         <label ><span class="text-label">ผู้มีหน้าที่หักภาษีณ ที่จ่าย : -  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; เลขประจำตัวผู้เสียภาษีอากร (13 หลัก)*  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;' . $id . '</span></label>
-        <br><label><span class="text-label">ชื่อ.......................................................................................................  เลขประจำตัวผู้เสียอากร................................................................................</span></label>
-        <br> <label><span class="text-label"><span>ที่อยู่........................................................................................................................................................................................................................</span></label>
+        <br><label><span class="text-label">ชื่อ ' . $row["Name_T"] . ' เลขประจำตัวผู้เสียอากร ' . $row["ID_T"] . ' </span></label>
+        <br> <label><span class="text-label"><span>ที่อยู่ ' . $row["Address_T"] . ' </span></label>
      </div>
 
 <div class="box1">
 
 
 <label ><span class="text-label">ผู้มีหน้าที่หักภาษีณ ที่จ่าย : -  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; เลขประจำตัวผู้เสียภาษีอากร (13 หลัก)*  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;' . $id . '</span></label>
-<br><label><span class="text-label">ชื่อ.......................................................................................................  เลขประจำตัวผู้เสียอากร................................................................................</span></label>
-<br> <label><span class="text-label"><span>ที่อยู่........................................................................................................................................................................................................................</span></label>
-<label>ลำดับที่....................ในแบบที่ &emsp;&emsp;
-<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+<br><label><span class="text-label">ชื่อ ' . $row["Name_G"] . ' </span></label>
+<br> <label><span class="text-label"><span>ที่อยู่ ' . $row["Address_G"] . ' </span></label>
+<label>ลำดับที่ ' . $row["No_G"] . ' ในแบบที่ &emsp;&emsp;
+' . $check[0] . '
 <label for="vehicle1">(1) ภ.ง.ด.1ก </label>
 &emsp;
-<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+' . $check[1] . '
 <label for="vehicle1">(2) ภ.ง.ด.1ก พิเศษ </label>
 &emsp;
-<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+' . $check[2] . '
 <label for="vehicle1">(3) ภ.ง.ด.2 </label>
 &emsp;
-<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+' . $check[3] . '
 <label for="vehicle1">(4) ภ.ง.ด.3 </label><br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
-<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+' . $check[4] . '
 <label for="vehicle1">(5) ภ.ง.ด.2ก </label>
 &emsp;
-<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+' . $check[5] . '
 <label for="vehicle1">(6) ภ.ง.ด.3ก </label>
 &emsp;&emsp;&emsp;&nbsp;
-<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+' . $check[6] . '
 <label for="vehicle1">(7) ภ.ง.ด.53 </label>
 </label>
 </div>
@@ -328,11 +360,8 @@ $text = '
 
 </table>
 </div>
-
-
-
         ';
-$text2 = '
+  $text2 = '
         <div class="box1">
         <label><span class="text-label">เงินที่จ่ายเข้า กบข./กสจ./กองทุนสงเคราะห์ครูโรงเรียนเอกชน................บาท กองทุนประกันสังคม................บาท กองทุนสำรองเลี้ยงชีพ................บาท</span></label>
         </div>
@@ -383,17 +412,16 @@ $text2 = '
       <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;3. กรณีอื่นๆ นอกเหนือจาก 1. และ 2. ให้ใช้เลข ประจำตัวผู้เสียภาษีอากร (13 หลัก) 
       <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ของกรรมสรรพากร
       </span></label>
-
-
         </div>';
+  $mpdf->WriteHTML($text);
+  $mpdf->WriteHTML($text2);
+}
 
 $querySum = "SELECT * FROM cal WHERE ID_FR = '" . $id . "'";
 $resultSum = $conn->query($querySum);
 $rowSum = $resultSum->fetch_assoc();
 $text3 = "<h3>ผลรวมรวมเงินที่จ่ายและภาษีที่หักนำส่ง : " . number_format($rowSum["sum"]) . " บาท</h3>";
 
-$mpdf->WriteHTML($text);
-$mpdf->WriteHTML($text2);
 $mpdf->WriteHTML($text3);
 $mpdf->Output();
 $conn->close();

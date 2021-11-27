@@ -72,8 +72,6 @@ $Pay_other = $_POST["Pay_other"];
 $Name = $_POST["Name"];
 $Date = $_POST["Date"];
 
-$queryHead = "INSERT INTO head(ID_FR, ID, No) 
-            VALUES ('" . $ID_G . "', '" . $ID . "','" . $No . "')";
 $queryTake = "INSERT INTO take(ID_T, Name_T, Address_T) 
             VALUES ('" . $ID_T . "','" . $Name_T . "','" . $Address_T . "')";
 $queryGive = "INSERT INTO give(ID_G, Name_G, Address_G, No_G, type_G) 
@@ -161,9 +159,8 @@ try {
     $check = getimagesize($_FILES["file"]["tmp_name"]);
     if ($check !== false) {
         if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-            $queryUpload = "INSERT INTO 
-                            image(image, No) 
-                            VALUES ('" . $target_file . "','" . $ID . "')";
+            $queryUpload = "INSERT INTO head(ID_FR, ID, No, image) 
+                            VALUES ('" . $ID_G . "', '" . $ID . "','" . $No . "', '" . $target_file . "')";
             if (
                 $conn->query($queryUpload) === TRUE
             ) {
@@ -202,7 +199,6 @@ if ($resultGetCal->num_rows > 0) {
 }
 
 if (
-    $conn->query($queryHead) === TRUE &&
     $conn->query($queryTake) === TRUE &&
     $conn->query($queryGive) === TRUE &&
     $conn->query($queryDate) === TRUE &&
@@ -215,7 +211,6 @@ if (
     $_SESSION["idCard"] = $ID_G;
     header("location: ../");
 } else {
-    echo "Error: " . $queryHead . "<br>" . $conn->error;
     echo "Error: " . $queryTake . "<br>" . $conn->error;
     echo "Error: " . $queryGive . "<br>" . $conn->error;
     echo "Error: " . $queryDate . "<br>" . $conn->error;
