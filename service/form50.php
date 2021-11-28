@@ -77,7 +77,9 @@ $queryTake = "INSERT INTO take(ID_T, Name_T, Address_T)
 $queryGive = "INSERT INTO give(ID_G, Name_G, Address_G, No_G, type_G) 
             VALUES ('" . $ID_G . "','" . $Name_G . "','" . $Address_G . "','" . $No_G . "','" . $type_G . "')";
 $queryDate = "INSERT INTO date
-            (Income_D, 
+            (
+            ID_FR,
+            Income_D, 
             Fee_D, 
             Copy_D, 
             Interest_D, 
@@ -92,10 +94,12 @@ $queryDate = "INSERT INTO date
             Interest_D25, 
             Pay_D, 
             Other_D) 
-            VALUES ('" . $Income_D . "','" . $Fee_D . "','" . $Copy_D . "','" . $Interest_D . "','" . $Interest_D11 . "','" . $Interest_D12 . "','" . $Interest_D13 . "',
+            VALUES ('" . $ID_G . "', '" . $Income_D . "','" . $Fee_D . "','" . $Copy_D . "','" . $Interest_D . "','" . $Interest_D11 . "','" . $Interest_D12 . "','" . $Interest_D13 . "',
             '" . $Interest_D14 . "','" . $Interest_D21 . "','" . $Interest_D22 . "','" . $Interest_D23 . "','" . $Interest_D24 . "','" . $Interest_D25 . "','" . $Pay_D . "','" . $Other_D . "')";
 $queryPay = "INSERT INTO pay
-            (Income_P, 
+            (
+            ID_FR,
+            Income_P, 
             Fee_P, 
             Copy_P, 
             Interest_P, 
@@ -110,10 +114,12 @@ $queryPay = "INSERT INTO pay
             Interest_P25, 
             Pay_P, 
             Other_P) 
-            VALUES ('" . $Income_P . "','" . $Fee_P . "','" . $Copy_P . "','" . $Interest_P . "','" . $Interest_P11 . "','" . $Interest_P12 . "','" . $Interest_P13 . "',
+            VALUES ('" . $ID_G . "', '" . $Income_P . "','" . $Fee_P . "','" . $Copy_P . "','" . $Interest_P . "','" . $Interest_P11 . "','" . $Interest_P12 . "','" . $Interest_P13 . "',
             '" . $Interest_P14 . "','" . $Interest_P21 . "','" . $Interest_P22 . "','" . $Interest_P23 . "','" . $Interest_P24 . "','" . $Interest_P25 . "','" . $Pay_P . "','" . $Other_P . "')";
 $querySent = "INSERT INTO sent
-            (Income_S, 
+            (
+            ID_FR,
+            Income_S, 
             Fee_S, 
             Copy_S, 
             Interest_S, 
@@ -128,7 +134,7 @@ $querySent = "INSERT INTO sent
             Interest_S25, 
             Pay_S, 
             Other_S) 
-            VALUES ('" . $Income_S . "','" . $Fee_S . "','" . $Copy_S . "','" . $Interest_S . "','" . $Interest_S11 . "','" . $Interest_S12 . "','" . $Interest_S13 . "',
+            VALUES ('" . $ID_G . "', '" . $Income_S . "','" . $Fee_S . "','" . $Copy_S . "','" . $Interest_S . "','" . $Interest_S11 . "','" . $Interest_S12 . "','" . $Interest_S13 . "',
             '" . $Interest_S14 . "','" . $Interest_S21 . "','" . $Interest_S22 . "','" . $Interest_S23 . "','" . $Interest_S24 . "','" . $Interest_S25 . "','" . $Pay_S . "','" . $Other_S . "')";
 $queryOther = "INSERT INTO other
             (
