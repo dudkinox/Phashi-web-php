@@ -367,9 +367,6 @@ while ($row = $result->fetch_assoc()) {
 </td>
 </tr>
 
-
-
-
 </table>
 </div>
         ';

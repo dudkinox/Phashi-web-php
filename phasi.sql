@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2021 at 12:58 PM
+-- Generation Time: Nov 28, 2021 at 07:05 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -37,7 +37,7 @@ CREATE TABLE `cal` (
 --
 
 INSERT INTO `cal` (`ID_FR`, `sum`) VALUES
-('1-1111-11111-1-11', '1000.00');
+('1-1111-11111-1-11', '3000.00');
 
 -- --------------------------------------------------------
 
@@ -46,6 +46,7 @@ INSERT INTO `cal` (`ID_FR`, `sum`) VALUES
 --
 
 CREATE TABLE `date` (
+  `ID_FR` varchar(100) NOT NULL,
   `Income_D` varchar(100) NOT NULL,
   `Fee_D` varchar(100) NOT NULL,
   `Copy_D` varchar(100) NOT NULL,
@@ -67,8 +68,8 @@ CREATE TABLE `date` (
 -- Dumping data for table `date`
 --
 
-INSERT INTO `date` (`Income_D`, `Fee_D`, `Copy_D`, `Interest_D`, `Interest_D11`, `Interest_D12`, `Interest_D13`, `Interest_D14`, `Interest_D21`, `Interest_D22`, `Interest_D23`, `Interest_D24`, `Interest_D25`, `Pay_D`, `Other_D`) VALUES
-('วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'วัน/เดือน หรือปีภาษี ที่จ่าย');
+INSERT INTO `date` (`ID_FR`, `Income_D`, `Fee_D`, `Copy_D`, `Interest_D`, `Interest_D11`, `Interest_D12`, `Interest_D13`, `Interest_D14`, `Interest_D21`, `Interest_D22`, `Interest_D23`, `Interest_D24`, `Interest_D25`, `Pay_D`, `Other_D`) VALUES
+('1-1111-11111-1-11', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,7 @@ CREATE TABLE `give` (
 --
 
 INSERT INTO `give` (`ID_G`, `Name_G`, `Address_G`, `No_G`, `type_G`) VALUES
-('1-1111-11111-1-11', 'ชื่อ นามสกุล ที่จ่าย', '775/104', '1', 'ภ.ง.ด.1ก');
+('1-1111-11111-1-11', 'ชื่อ นามสกุล ที่จ่าย', '64/39', '21', 'ภ.ง.ด.53');
 
 -- --------------------------------------------------------
 
@@ -100,26 +101,16 @@ INSERT INTO `give` (`ID_G`, `Name_G`, `Address_G`, `No_G`, `type_G`) VALUES
 CREATE TABLE `head` (
   `ID_FR` varchar(100) NOT NULL,
   `ID` varchar(100) NOT NULL,
-  `No` varchar(100) NOT NULL
+  `No` varchar(100) NOT NULL,
+  `image` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `head`
 --
 
-INSERT INTO `head` (`ID_FR`, `ID`, `No`) VALUES
-('1-1111-11111-1-11', '1', '1');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `image`
---
-
-CREATE TABLE `image` (
-  `image` varchar(100) NOT NULL,
-  `No` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `head` (`ID_FR`, `ID`, `No`, `image`) VALUES
+('1-1111-11111-1-11', '1', '1', '../uploads/20790c42cadda6a6f12d75a019629f0e.jpg');
 
 -- --------------------------------------------------------
 
@@ -149,7 +140,7 @@ CREATE TABLE `other` (
 --
 
 INSERT INTO `other` (`ID_FR`, `Interest`, `Interest_other`, `Other`, `Sum_pay`, `Sum_sent`, `Sum_vat`, `School`, `Social`, `Life`, `Pay`, `Pay_other`, `Name`, `Date`) VALUES
-('1-1111-11111-1-11', 'อัตราอื่นๆ', 'อื่นๆ', 'อื่นๆ', '100', '1000', 'รวมเงินภาษีที่หักส่ง', '12', '12', '12', 'อื่นๆ', 'อื่นๆ', 'ชื่อสกุลผู้จ่ายเงิน', '2021-11-22');
+('1-1111-11111-1-11', 'อัตราอื่นๆ', 'อื่นๆ', 'อื่นๆ', '200', '3000', 'รวมเงินภาษีที่หักส่ง', '12', '12', '1', 'อื่นๆ', 'อื่นๆ', 'ชื่อสกุลผู้จ่ายเงิน', '2021-11-28');
 
 -- --------------------------------------------------------
 
@@ -158,6 +149,7 @@ INSERT INTO `other` (`ID_FR`, `Interest`, `Interest_other`, `Other`, `Sum_pay`, 
 --
 
 CREATE TABLE `pay` (
+  `ID_FR` varchar(100) NOT NULL,
   `Income_P` varchar(100) NOT NULL,
   `Fee_P` varchar(100) NOT NULL,
   `Copy_P` varchar(100) NOT NULL,
@@ -179,8 +171,8 @@ CREATE TABLE `pay` (
 -- Dumping data for table `pay`
 --
 
-INSERT INTO `pay` (`Income_P`, `Fee_P`, `Copy_P`, `Interest_P`, `Interest_P11`, `Interest_P12`, `Interest_P13`, `Interest_P14`, `Interest_P21`, `Interest_P22`, `Interest_P23`, `Interest_P24`, `Interest_P25`, `Pay_P`, `Other_P`) VALUES
-('จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย', 'จำนวนเงินที่จ่าย');
+INSERT INTO `pay` (`ID_FR`, `Income_P`, `Fee_P`, `Copy_P`, `Interest_P`, `Interest_P11`, `Interest_P12`, `Interest_P13`, `Interest_P14`, `Interest_P21`, `Interest_P22`, `Interest_P23`, `Interest_P24`, `Interest_P25`, `Pay_P`, `Other_P`) VALUES
+('1-1111-11111-1-11', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2');
 
 -- --------------------------------------------------------
 
@@ -189,6 +181,7 @@ INSERT INTO `pay` (`Income_P`, `Fee_P`, `Copy_P`, `Interest_P`, `Interest_P11`, 
 --
 
 CREATE TABLE `sent` (
+  `ID_FR` varchar(100) NOT NULL,
   `Income_S` varchar(100) NOT NULL,
   `Fee_S` varchar(100) NOT NULL,
   `Copy_S` varchar(100) NOT NULL,
@@ -210,8 +203,8 @@ CREATE TABLE `sent` (
 -- Dumping data for table `sent`
 --
 
-INSERT INTO `sent` (`Income_S`, `Fee_S`, `Copy_S`, `Interest_S`, `Interest_S11`, `Interest_S12`, `Interest_S13`, `Interest_S14`, `Interest_S21`, `Interest_S22`, `Interest_S23`, `Interest_S24`, `Interest_S25`, `Pay_S`, `Other_S`) VALUES
-('ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'วัน/เดือน หรือปีภาษี ที่จ่าย', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้', 'ภาษีที่หักและนำส่งไว้');
+INSERT INTO `sent` (`ID_FR`, `Income_S`, `Fee_S`, `Copy_S`, `Interest_S`, `Interest_S11`, `Interest_S12`, `Interest_S13`, `Interest_S14`, `Interest_S21`, `Interest_S22`, `Interest_S23`, `Interest_S24`, `Interest_S25`, `Pay_S`, `Other_S`) VALUES
+('1-1111-11111-1-11', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '1', '3', '3', '3', '3');
 
 -- --------------------------------------------------------
 
@@ -230,7 +223,7 @@ CREATE TABLE `take` (
 --
 
 INSERT INTO `take` (`ID_T`, `Name_T`, `Address_T`) VALUES
-('1-1111-11111-1-11', 'ชื่อ นามสกุล', '775/104');
+('1-1111-11111-1-11', 'ชื่อ นามสกุล', '82/52');
 
 --
 -- Indexes for dumped tables
