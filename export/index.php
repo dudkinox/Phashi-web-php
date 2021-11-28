@@ -116,12 +116,21 @@ $style = '
 $mpdf->WriteHTML($style);
 
 $query = "SELECT B.Name_T, B.Address_T, A.image, A.ID, A.No, B.ID_T, 
-          C.Name_G, C.Address_G, C.No_G, C.type_G
+          C.Name_G, C.Address_G, C.No_G, C.type_G,
+          D.Income_D, D.Fee_D, D.Copy_D, D.Interest_D, D.Interest_D11, D.Interest_D12, D.Interest_D13, D.Interest_D14, D.Interest_D21, D.Interest_D22, D.Interest_D23, D.Interest_D24, D.Interest_D25, D.Pay_D, D.Other_D,
+          E.Income_P AS EIncome_P, E.Fee_P AS EFee_P, E.Copy_P AS ECopy_P, E.Interest_P AS EInterest_P, E.Interest_P11 AS EInterest_P11, E.Interest_P12 AS EInterest_P12, E.Interest_P13 AS EInterest_P13, E.Interest_P14 AS EInterest_P14, E.Interest_P21 AS EInterest_P21, E.Interest_P22 AS EInterest_P22, E.Interest_P23 AS EInterest_P23, E.Interest_P24 AS EInterest_P24, E.Interest_P25 AS EInterest_P25, E.Pay_P AS EPay_P, E.Other_P AS EOther_P,
+          F.Income_S, F.Fee_S, F.Copy_S, F.Interest_S, F.Interest_S11, F.Interest_S12, F.Interest_S13, F.Interest_S14, F.Interest_S21, F.Interest_S22, F.Interest_S23, F.Interest_S24, F.Interest_S25, F.Pay_S, F.Other_S
           FROM head AS A 
           INNER JOIN take AS B 
           ON A.ID_FR = B.ID_T
           INNER JOIN give AS C
           ON C.ID_G = '" . $id . "'
+          INNER JOIN date AS D
+          ON D.ID_FR = '" . $id . "'
+          INNER JOIN pay AS E
+          ON E.ID_FR = '" . $id . "'
+          INNER JOIN sent AS F
+          ON F.ID_FR = '" . $id . "'
           WHERE A.ID_FR = '" . $id . "'";
 $result = $conn->query($query);
 
@@ -219,30 +228,30 @@ while ($row = $result->fetch_assoc()) {
   
   <tr>
     <td>1. เงินเดือน ค่าจ้าง เบี้ยเลี้ยง โบนัส ฯลฯ ตามมาตรา 40 (1)</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td style = "text-align:center">' . $row["Income_D"] . '</td>
+    <td style = "text-align:center">' . $row["EIncome_P"] . '</td>
+    <td style = "text-align:center">' . $row["Income_S"] . '</td>
   </tr>
 
   <tr>
   <td>2. ค่าธรรมเนียม ค่านายหน้า ฯลฯ ตามมาตรา 40 (2)</td>
-  <td></td>
-  <td></td>
-  <td></td>
+  <td style = "text-align:center">' . $row["Fee_D"] . '</td>
+  <td style = "text-align:center">' . $row["EFee_P"] . '</td>
+  <td style = "text-align:center">' . $row["Fee_S"] . '</td>
 </tr>
 
 <tr>
 <td>3. ค่าแห่งลิขสิทธิ์ ฯลฯ ตามมาตรา 40 (3)</td>
-<td></td>
-<td></td>
-<td></td>
+<td style = "text-align:center">' . $row["Copy_D"] . '</td>
+<td style = "text-align:center">' . $row["ECopy_P"] . '</td>
+<td style = "text-align:center">' . $row["Copy_S"] . '</td>
 </tr>
 
 <tr>
 <td>4. (ก) ดอกเบี้ย ฯลฯ ตามมาตรา 40 (ก)</td>
-<td></td>
-<td></td>
-<td></td>
+<td style = "text-align:center">' . $row["Interest_D"] . '</td>
+<td style = "text-align:center">' . $row["EInterest_P"] . '</td>
+<td style = "text-align:center">' . $row["Interest_S"] . '</td>
 </tr>
 
 <tr>
@@ -251,75 +260,75 @@ while ($row = $result->fetch_assoc()) {
 <br>&emsp;&emsp;&emsp;&emsp;&emsp; กำไรสุทธิของกิจการที่ต้องเสียภาษีเงินได้นิติบุคคลอัตราดังนี้
 <br>&emsp;&emsp;&emsp;&emsp;&emsp; (1.1) อัตราร้อยละ 30 ของกำไรสุทธิ
 </td>
-<td></td>
-<td></td>
-<td></td>
+<td style = "text-align:center">' . $row["Interest_D11"] . '</td>
+<td style = "text-align:center">' . $row["EInterest_P11"] . '</td>
+<td style = "text-align:center">' . $row["Interest_S11"] . '</td>
 </tr>
 
 <tr>
 <td>&emsp;&emsp;&emsp;&emsp;&emsp; (1.2) อัตราร้อยละ 25 ของกำไรสุทธิ</td>
-<td></td>
-<td></td>
-<td></td>
+<td style = "text-align:center">' . $row["Interest_D12"] . '</td>
+<td style = "text-align:center">' . $row["EInterest_P12"] . '</td>
+<td style = "text-align:center">' . $row["Interest_S12"] . '</td>
 </tr>
 
 
 <tr>
 <td>&emsp;&emsp;&emsp;&emsp;&emsp; (1.3) อัตราร้อยละ 20 ของกำไรสุทธิ</td>
-<td></td>
-<td></td>
-<td></td>
+<td style = "text-align:center">' . $row["Interest_D13"] . '</td>
+<td style = "text-align:center">' . $row["EInterest_P13"] . '</td>
+<td style = "text-align:center">' . $row["Interest_S13"] . '</td>
 </tr>
 
 <tr>
 <td>&emsp;&emsp;&emsp;&emsp;&emsp; (1.4) อัตราอื่นๆ (ระบุ)........................ของกำไรสุทธิ</td>
-<td></td>
-<td></td>
-<td></td>
+<td style = "text-align:center">' . $row["Interest_D14"] . '</td>
+<td style = "text-align:center">' . $row["EInterest_P14"] . '</td>
+<td style = "text-align:center">' . $row["Interest_S14"] . '</td>
 </tr>
 
 <tr>
 <td>&emsp;&emsp;&emsp; (2) กรณีผู้ที่ได้รับเงินปันผลไม่ได้รับเครดิตภาษี เนื่องจากจ่ายจาก
 <br>&emsp;&emsp;&emsp;&emsp;&emsp; (2.1) กำไรสุทธิของกิจการที่ได้รับยกเว้นภาษีเงินได้นิติบุคคล
 </td>
-<td></td>
-<td></td>
-<td></td>
+<td style = "text-align:center">' . $row["Interest_D21"] . '</td>
+<td style = "text-align:center">' . $row["EInterest_P21"] . '</td>
+<td style = "text-align:center">' . $row["Interest_S21"] . '</td>
 </tr>
 
 <tr>
 <td>&emsp;&emsp;&emsp;&emsp;&emsp; (2.2) เงินปันผลหรือเงินส่วนแบงของกำไรที่ได้รับยกเว้นไม่ต้อง
 <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;นำมารวมคำนวณเป็นรายได้เพื่อเสียภาษีเงินได้นิติบุคคล
 </td>
-<td></td>
-<td></td>
-<td></td>
+<td style = "text-align:center">' . $row["Interest_D22"] . '</td>
+<td style = "text-align:center">' . $row["EInterest_P22"] . '</td>
+<td style = "text-align:center">' . $row["Interest_S22"] . '</td>
 </tr>
 
 <tr>
 <td>&emsp;&emsp;&emsp;&emsp;&emsp; (2.3) กำไรสุทธิส่วนที่ได้หักผลขาดทุนสุทธิยกมาไม่เกิน 5 ปี
 <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ก่อนรอบระยะเวลาบัญชีปีปัจจุบัน
 </td>
-<td></td>
-<td></td>
-<td></td>
+<td style = "text-align:center">' . $row["Interest_D23"] . '</td>
+<td style = "text-align:center">' . $row["EInterest_P23"] . '</td>
+<td style = "text-align:center">' . $row["Interest_S23"] . '</td>
 </tr>
 
 <tr>
 <td>&emsp;&emsp;&emsp;&emsp;&emsp; (2.4) กำไรที่รับรู้ทางบัญชีโดยวิธีส่วนได้เสีย (equity method)
 <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ก่อนรอบระยะเวลาบัญชีปีปัจจุบัน
 </td>
-<td></td>
-<td></td>
-<td></td>
+<td style = "text-align:center">' . $row["Interest_D24"] . '</td>
+<td style = "text-align:center">' . $row["EInterest_P24"] . '</td>
+<td style = "text-align:center">' . $row["Interest_S24"] . '</td>
 </tr>
 
 <tr>
 <td>&emsp;&emsp;&emsp;&emsp;&emsp; (2.5) อื่นๆ (ระบุ)...............................................
 </td>
-<td></td>
-<td></td>
-<td></td>
+<td style = "text-align:center">' . $row["Interest_D25"] . '</td>
+<td style = "text-align:center">' . $row["EInterest_P25"] . '</td>
+<td style = "text-align:center">' . $row["Interest_S25"] . '</td>
 </tr>
 
 <tr>
@@ -329,17 +338,17 @@ while ($row = $result->fetch_assoc()) {
 <br>&emsp; สาธารณะ ค่าจ้างทำของ ค่าโฆษณา ค่าเช่า ค่าขนส่ง ค่าบริการ ค่าเบี้ยประกัน
 <br>&emsp; วินาศภัย ฯลฯ
 </td>
-<td></td>
-<td></td>
-<td></td>
+<td style = "text-align:center">' . $row["Pay_D"] . '</td>
+<td style = "text-align:center">' . $row["EPay_P"] . '</td>
+<td style = "text-align:center">' . $row["Pay_S"] . '</td>
 </tr>
 
 <tr>
 <td>6. อื่นๆ (ระบุ)...............................................
 </td>
-<td></td>
-<td></td>
-<td></td>
+<td style = "text-align:center">' . $row["Other_D"] . '</td>
+<td style = "text-align:center">' . $row["EOther_P"] . '</td>
+<td style = "text-align:center">' . $row["Other_S"] . '</td>
 </tr>
 
 <tr>
