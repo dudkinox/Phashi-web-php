@@ -119,7 +119,8 @@ $query = "SELECT B.Name_T, B.Address_T, A.image, A.ID, A.No, B.ID_T,
           C.Name_G, C.Address_G, C.No_G, C.type_G,
           D.Income_D, D.Fee_D, D.Copy_D, D.Interest_D, D.Interest_D11, D.Interest_D12, D.Interest_D13, D.Interest_D14, D.Interest_D21, D.Interest_D22, D.Interest_D23, D.Interest_D24, D.Interest_D25, D.Pay_D, D.Other_D,
           E.Income_P AS EIncome_P, E.Fee_P AS EFee_P, E.Copy_P AS ECopy_P, E.Interest_P AS EInterest_P, E.Interest_P11 AS EInterest_P11, E.Interest_P12 AS EInterest_P12, E.Interest_P13 AS EInterest_P13, E.Interest_P14 AS EInterest_P14, E.Interest_P21 AS EInterest_P21, E.Interest_P22 AS EInterest_P22, E.Interest_P23 AS EInterest_P23, E.Interest_P24 AS EInterest_P24, E.Interest_P25 AS EInterest_P25, E.Pay_P AS EPay_P, E.Other_P AS EOther_P,
-          F.Income_S, F.Fee_S, F.Copy_S, F.Interest_S, F.Interest_S11, F.Interest_S12, F.Interest_S13, F.Interest_S14, F.Interest_S21, F.Interest_S22, F.Interest_S23, F.Interest_S24, F.Interest_S25, F.Pay_S, F.Other_S
+          F.Income_S, F.Fee_S, F.Copy_S, F.Interest_S, F.Interest_S11, F.Interest_S12, F.Interest_S13, F.Interest_S14, F.Interest_S21, F.Interest_S22, F.Interest_S23, F.Interest_S24, F.Interest_S25, F.Pay_S, F.Other_S,
+          G.Interest, G.Interest_other, G.Other, G.Sum_pay, G.Sum_sent, G.Sum_vat, G.School, G.Social, G.Life, G.Pay, G.Pay_other, G.Name, G.Date
           FROM head AS A 
           INNER JOIN take AS B 
           ON A.ID_FR = B.ID_T
@@ -131,6 +132,8 @@ $query = "SELECT B.Name_T, B.Address_T, A.image, A.ID, A.No, B.ID_T,
           ON E.ID_FR = '" . $id . "'
           INNER JOIN sent AS F
           ON F.ID_FR = '" . $id . "'
+          INNER JOIN other AS G
+          ON G.ID_FR = '" . $id . "'
           WHERE A.ID_FR = '" . $id . "'";
 $result = $conn->query($query);
 
@@ -281,7 +284,7 @@ while ($row = $result->fetch_assoc()) {
 </tr>
 
 <tr>
-<td>&emsp;&emsp;&emsp;&emsp;&emsp; (1.4) อัตราอื่นๆ (ระบุ)........................ของกำไรสุทธิ</td>
+<td>&emsp;&emsp;&emsp;&emsp;&emsp; (1.4) อัตราอื่นๆ (ระบุ) ' . $row["Interest"] . ' ของกำไรสุทธิ</td>
 <td style = "text-align:center">' . $row["Interest_D14"] . '</td>
 <td style = "text-align:center">' . $row["EInterest_P14"] . '</td>
 <td style = "text-align:center">' . $row["Interest_S14"] . '</td>
@@ -324,7 +327,7 @@ while ($row = $result->fetch_assoc()) {
 </tr>
 
 <tr>
-<td>&emsp;&emsp;&emsp;&emsp;&emsp; (2.5) อื่นๆ (ระบุ)...............................................
+<td>&emsp;&emsp;&emsp;&emsp;&emsp; (2.5) อื่นๆ (ระบุ) ' . $row["Interest_other"] . '
 </td>
 <td style = "text-align:center">' . $row["Interest_D25"] . '</td>
 <td style = "text-align:center">' . $row["EInterest_P25"] . '</td>
@@ -344,7 +347,7 @@ while ($row = $result->fetch_assoc()) {
 </tr>
 
 <tr>
-<td>6. อื่นๆ (ระบุ)...............................................
+<td>6. อื่นๆ (ระบุ) ' . $row["Other"] . '
 </td>
 <td style = "text-align:center">' . $row["Other_D"] . '</td>
 <td style = "text-align:center">' . $row["EOther_P"] . '</td>
@@ -355,12 +358,12 @@ while ($row = $result->fetch_assoc()) {
 <td style = "border: 0px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; รวมเงินที่จ่ายและภาษีที่หักนำส่ง
 </td>
 <td style = "border: 0px;"></td>
-<td></td>
-<td></td>
+<td style = "text-align:center">' . $row["Sum_pay"] . '</td>
+<td style = "text-align:center">' . $row["Sum_sent"] . '</td>
 </tr>
 
 <tr>
-<td style = "border: 0px;">รวมเงินภาษีที่หักนำส่ง (ตัวอักษร)..................
+<td style = "border: 0px;">รวมเงินภาษีที่หักนำส่ง (ตัวอักษร) ' . $row["Sum_vat"] . '
 </td>
 </tr>
 
@@ -370,31 +373,47 @@ while ($row = $result->fetch_assoc()) {
 </table>
 </div>
         ';
+
+  $check2 = ["<input type='checkbox'>", "<input type='checkbox'>", "<input type='checkbox'>", "<input type='checkbox'>"];
+  $textOther = "";
+  switch ($row["Pay_other"]) {
+    case "หัก ณ ที่จ่าย":
+      $check2[0] = "<input type='checkbox' checked='checked'>";
+      break;
+    case "ออกให้ตลอดไป":
+      $check2[1] = "<input type='checkbox' checked='checked'>";
+      break;
+    case "ออกให้ครั้งเดียว":
+      $check2[2] = "<input type='checkbox' checked='checked'>";
+      break;
+    default:
+      $check2[3] = "<input type='checkbox' checked='checked'>";
+      $textOther = $row["Pay_other"];
+      break;
+  }
+
   $text2 = '
         <div class="box1">
-        <label><span class="text-label">เงินที่จ่ายเข้า กบข./กสจ./กองทุนสงเคราะห์ครูโรงเรียนเอกชน................บาท กองทุนประกันสังคม................บาท กองทุนสำรองเลี้ยงชีพ................บาท</span></label>
+        <label><span class="text-label">เงินที่จ่ายเข้า กบข./กสจ./กองทุนสงเคราะห์ครูโรงเรียนเอกชน ' . $row["School"] . ' บาท กองทุนประกันสังคม ' . $row["Social"] . ' บาท กองทุนสำรองเลี้ยงชีพ ' . $row["Life"] . ' บาท</span></label>
         </div>
         <div class="box1">
         <label><span class="text-label">
         ผู้จ่ายเงิน
         &emsp;&emsp;&emsp;&emsp;
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-        <label for="vehicle1">(1) ภ.ง.ด.1ก </label>
+        ' . $check2[0] . '
+        <label for="vehicle1">(1) หัก ณ ที่จ่าย </label>
         &emsp;&emsp;&emsp;&emsp;
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-        <label for="vehicle1">(1) ภ.ง.ด.1ก </label>
+        ' . $check2[1] . '
+        <label for="vehicle1">(2) ออกให้ตลอดไป </label>
         &emsp;&emsp;&emsp;&emsp;
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-        <label for="vehicle1">(1) ภ.ง.ด.1ก </label>
+        ' . $check2[2] . '
+        <label for="vehicle1">(3) ออกให้ครั้งเดียว </label>
         &emsp;&emsp;&emsp;&emsp;
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-        <label for="vehicle1">(1) ภ.ง.ด.1ก </label>
+        ' . $check2[3] . '
+        <label for="vehicle1">(4) อื่นๆ ' . $textOther . ' </label>
         </span>
         </label>
         </div>
-      
-
-
       
         <div class="row">
         <div class="column1">
@@ -408,19 +427,18 @@ while ($row = $result->fetch_assoc()) {
         
         <div class="column2">
         <label><span class="text-label">ขอรับรองว่าข้อความและตัวเลขดังกล่าวข้างต้นถูกต้องตรงกับความจริงทุกประการ
-        <br>ลงชื่อ............................................ผู้จ่ายเงิน
-        <br>..................../..................../....................
+        <br>ลงชื่อ ' . $row["Name"] . ' ผู้จ่ายเงิน
+        <br> ' . $row["Date"] . '
         <br>(วัน เดือน ปี ที่ออกหนังสือรับรองฯ)
         </span></label>
         </div>
-      </div>
-
+        </div>
         
-      <label><span class="text-label">หมายเหตุ เลขประจำตัวผู้เสียภาษีอากร (13 หลัก)* หมายถึง &emsp;&emsp; 1.กรณีบุคคลธรรมดาไทย ให้ใช้เลขประจำตัวประชาชนของกรมการปกครอง
-      <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2. กรณีนิติบุคคล ให้ใช้เลขทะเบียนนิติบุคคลของกรมพัฒนาธุรกิจการค้า
-      <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;3. กรณีอื่นๆ นอกเหนือจาก 1. และ 2. ให้ใช้เลข ประจำตัวผู้เสียภาษีอากร (13 หลัก) 
-      <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ของกรรมสรรพากร
-      </span></label>
+        <label><span class="text-label">หมายเหตุ เลขประจำตัวผู้เสียภาษีอากร (13 หลัก)* หมายถึง &emsp;&emsp; 1.กรณีบุคคลธรรมดาไทย ให้ใช้เลขประจำตัวประชาชนของกรมการปกครอง
+        <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2. กรณีนิติบุคคล ให้ใช้เลขทะเบียนนิติบุคคลของกรมพัฒนาธุรกิจการค้า
+        <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;3. กรณีอื่นๆ นอกเหนือจาก 1. และ 2. ให้ใช้เลข ประจำตัวผู้เสียภาษีอากร (13 หลัก) 
+        <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ของกรรมสรรพากร
+        </span></label>
         </div>';
   $mpdf->WriteHTML($text);
   $mpdf->WriteHTML($text2);
