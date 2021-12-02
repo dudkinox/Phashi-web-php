@@ -190,7 +190,7 @@ $resultGetSum = $conn->query($queryGetSum);
 $sum = 0;
 if ($resultGetSum->num_rows > 0) {
     $rowGetSum = $resultGetSum->fetch_assoc();
-    $sum = number_format($Sum_sent) +  number_format($rowGetSum["Sum_sent"]);
+    $sum = $Sum_sent +  $rowGetSum["Sum_sent"];
 } else {
     $sum = $Sum_sent;
 }

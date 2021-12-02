@@ -140,8 +140,12 @@ $result = $conn->query($query);
 $text = "";
 $text2 = "";
 
-while ($row = $result->fetch_assoc()) {
+$queryLoop = "SELECT MAX(No) FROM head WHERE ID_FR = '" . $id . "'";
+$resultLoop = $conn->query($queryLoop);
+$rowLoop = $resultLoop->fetch_assoc();
 
+for ($i = 0; $i < $rowLoop["MAX(No)"]; $i++) {
+  $row = $result->fetch_assoc();
   $image = '&emsp;&emsp;&emsp;&emsp;<img src="' . $row["image"] . '" />';
   $mpdf->WriteHTML($image);
   $mpdf->AddPage();
