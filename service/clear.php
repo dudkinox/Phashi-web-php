@@ -15,7 +15,6 @@ if (
     $conn->query($clearDate) === TRUE &&
     $conn->query($clearGive) === TRUE &&
     $conn->query($clearHead) === TRUE &&
-    $conn->query($clearImage) === TRUE &&
     $conn->query($clearother) === TRUE &&
     $conn->query($clearpay) === TRUE &&
     $conn->query($clearsent) === TRUE &&
