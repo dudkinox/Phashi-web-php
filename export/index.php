@@ -146,7 +146,7 @@ $rowLoop = $resultLoop->fetch_assoc();
 
 for ($i = 0; $i < $rowLoop["MAX(No)"]; $i++) {
   $row = $result->fetch_assoc();
-  $image = '&emsp;&emsp;&emsp;&emsp;<img src="' . $row["image"] . '" />';
+  $image = '<img style = "text-align:center;" src="' . $row["image"] . '"  />';
   $mpdf->WriteHTML($image);
   $mpdf->AddPage();
 
