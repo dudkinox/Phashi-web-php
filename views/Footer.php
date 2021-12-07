@@ -21,8 +21,8 @@
                         64/39 หมู่ 13 ถนนสีหบุรานุกิจ ซอยโรงเหนังมีนบุรี <br>
                         แขวงมีนบุรี กรุงเทพ, 10510<br>
                         ประเทศไทย <br><br>
-                        <strong>เบอร์โทรศัพท์:</strong> 0xx-xxxxxxx<br>
-                        <strong>อีเมล์:</strong> info@example.com<br>
+                        <strong>เบอร์โทรศัพท์:</strong> 02-5171747<br>
+                        <strong>อีเมล์:</strong> ployaccount@hotmail.com.com<br>
                     </p>
                 </div>
 
