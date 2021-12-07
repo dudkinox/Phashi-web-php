@@ -178,6 +178,16 @@ try {
         }
         $uploadOk = 1;
     } else {
+        $queryUpload = "INSERT INTO head(ID_FR, ID, No, image) 
+        VALUES ('" . $ID_G . "', '" . $ID . "','" . $No . "', ' ไม่มีรูป ')";
+        if (
+            $conn->query($queryUpload) === TRUE
+        ) {
+            // 
+        } else {
+            echo "Error: " . $queryUpload . "<br>" . $conn->error;
+            exit;
+        }
         echo "File is not an image.";
         $uploadOk = 0;
     }

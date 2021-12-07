@@ -377,7 +377,7 @@ for ($i = 0; $i < $rowLoop["MAX(No)"]; $i++) {
 
   $check2 = ["<input type='checkbox'>", "<input type='checkbox'>", "<input type='checkbox'>", "<input type='checkbox'>"];
   $textOther = "";
-  switch ($row["Pay_other"]) {
+  switch ($row["Pay"]) {
     case "หัก ณ ที่จ่าย":
       $check2[0] = "<input type='checkbox' checked='checked'>";
       break;
