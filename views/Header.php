@@ -3,7 +3,7 @@
 
         <a href="index.html" class="logo d-flex align-items-center">
             <img src="" alt="">
-            <span>ภาษีคืนฉันซิ</span>
+            <span>ภาษีคืนฉันสิ</span>
         </a>
 
         <nav id="navbar" class="navbar">
