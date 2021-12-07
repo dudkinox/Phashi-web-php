@@ -304,6 +304,6 @@
   function calculate() {
     var Sum_sent = Number(document.getElementById("Sum_sent").value) + 0;
     document.getElementById("calculate").innerHTML =
-      "ภาษีคืนฉันซิ " + Sum_sent.toLocaleString() + " บาท";
+      "ภาษีคืนฉันสิ " + Sum_sent.toLocaleString() + " บาท";
   }
 </script>

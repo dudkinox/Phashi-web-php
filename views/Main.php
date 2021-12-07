@@ -7,7 +7,7 @@
                 <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="content">
                         <h3>วิธีการใช้งาน</h3>
-                        <h2>ภาษีคืนฉันซิ</h2>
+                        <h2>ภาษีคืนฉันสิ</h2>
                         <p>
                             ใส่รูปหนังสือรับรองการหักภาษี ณ ที่จ่าย(50 ทวิ) <br>
                             กรอกฟอร์มหนังสือรับรองการหักภาษี ณ ที่จ่าย(50 ทวิ)

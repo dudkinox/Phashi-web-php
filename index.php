@@ -44,7 +44,7 @@ $IDCARD = isset($_SESSION["idCard"]) ? $_SESSION["idCard"] : '';
         $totalVat = $rowTotalVat["sum"];
       }
     ?>
-      alert("บันทึกแล้วเรียบร้อย ภาษีคืนฉันซิปัจจุบัน <?php echo number_format($totalVat); ?> บาท");
+      alert("บันทึกแล้วเรียบร้อย ภาษีคืนฉันสิปัจจุบัน <?php echo number_format($totalVat); ?> บาท");
     <?php
       unset($_SESSION["save"]);
     }

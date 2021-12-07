@@ -16,7 +16,7 @@ if ($resultTotalAlert->num_rows > 0) {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div style="text-align:center" class="modal-body">
-                ภาษีคืนฉันซิ <?php echo number_format($TotalAlert); ?> บาท
+                ภาษีคืนฉันสิ <?php echo number_format($TotalAlert); ?> บาท
             </div>
             <div class="modal-footer">
                 <button type="button" onclick="clearInput('<?php echo $IDCARD; ?>')" class="btn btn-primary" data-bs-dismiss="modal">ยืนยัน</button>

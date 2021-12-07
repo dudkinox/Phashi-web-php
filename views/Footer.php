@@ -4,7 +4,7 @@
             <div class="row gy-4">
                 <div class="col-lg-6 col-md-6 footer-info">
                     <a href="index.html" class="logo d-flex align-items-center">
-                        <span>ภาษีคืนฉันซิ</span>
+                        <span>ภาษีคืนฉันสิ</span>
                     </a>
                     <p>ช่องทางการติดต่อ</p>
                     <div class="social-links mt-3">
