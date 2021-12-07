@@ -1,8 +1,8 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>ภาษีคืนฉันซิ</title>
-<meta content="ภาษีคืนฉันซิ เป็นเว็บไซต์ทดสอบคำนวณ ภงด.90" name="description">
-<meta content="ภาษีคืนฉันซิ ภาษี ภงด 90 ภงด.90 แอปคำนวณภาษี" name="keywords">
+<title>ภาษีคืนฉันสิ</title>
+<meta content="ภาษีคืนฉันสิ เป็นเว็บไซต์ทดสอบคำนวณ ภงด.90" name="description">
+<meta content="ภาษีคืนฉันสิ ภาษี ภงด 90 ภงด.90 แอปคำนวณภาษี" name="keywords">
 <!-- Favicons -->
 <link href="assets/img/phasi-icon.png" rel="icon">
 <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
